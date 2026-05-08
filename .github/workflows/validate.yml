@@ -49,13 +49,13 @@ jobs:
           missing = [c for c in required_categories if c not in data]
           if missing:
               raise SystemExit(f'Missing required categories: {missing}')
-         for cat, presets in data.items():
-                 if cat.startswith('_'):
-                     continue
-                 if not isinstance(presets, dict) or not presets:
-                     raise SystemExit(f'Category {cat} is empty or malformed')
-                 for name, text in presets.items():
-                     if not isinstance(text, str):
-                         raise SystemExit(f'{cat}/{name} has non-string text'))
+          for cat, presets in data.items():
+              if cat.startswith('_'):
+                  continue
+              if not isinstance(presets, dict) or not presets:
+                  raise SystemExit(f'Category {cat} is empty or malformed')
+              for name, text in presets.items():
+                  if not isinstance(text, str):
+                      raise SystemExit(f'{cat}/{name} has non-string text')
           print('OK: preset structure valid')
           "
