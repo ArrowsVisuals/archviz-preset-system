@@ -1,0 +1,19 @@
+name: Preset suggestion or feature request
+description: Suggest a new preset, category, or feature
+labels: ["enhancement"]
+body:
+  - type: textarea
+    attributes:
+      label: What would you like to add?
+      description: Describe the preset, category, or feature.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Why is it useful?
+      description: What use case does it solve? Reference projects help.
+  - type: textarea
+    attributes:
+      label: Proposed prompt text
+      description: If suggesting a preset, draft the actual prompt fragment text.
+      render: text

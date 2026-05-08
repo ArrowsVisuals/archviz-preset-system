@@ -1,0 +1,61 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate JSON files
+        run: |
+          python -c "
+          import json, sys
+          from pathlib import Path
+          for jsonfile in Path('.').rglob('*.json'):
+              try:
+                  with open(jsonfile) as f:
+                      json.load(f)
+                  print(f'OK: {jsonfile}')
+              except Exception as e:
+                  print(f'FAIL: {jsonfile}: {e}')
+                  sys.exit(1)
+          "
+
+      - name: Validate Python syntax
+        run: |
+          python -m py_compile __init__.py
+          echo "OK: __init__.py compiles"
+
+      - name: Check preset structure
+        run: |
+          python -c "
+          import json
+          with open('presets/default_presets.json') as f:
+              data = json.load(f)
+          required_categories = ['preservation', 'camera', 'lighting', 'atmosphere',
+                                 'style', 'materials', 'people', 'scale_life',
+                                 'cars', 'surroundings']
+          missing = [c for c in required_categories if c not in data]
+          if missing:
+              raise SystemExit(f'Missing required categories: {missing}')
+          for cat, presets in data.items():
+              if cat.startswith('_'):
+                  continue
+              if not isinstance(presets, dict) or not presets:
+                  raise SystemExit(f'Category {cat} is empty or malformed')
+              for name, text in presets.items():
+                  if not isinstance(text, str) or not text.strip():
+                      raise SystemExit(f'{cat}/{name} has empty or non-string text')
+          print('OK: preset structure valid')
+          "

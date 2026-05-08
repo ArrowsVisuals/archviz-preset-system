@@ -1,0 +1,203 @@
+{
+  "_comment_1": "ArchViz preset library v3. Edit this file in any text editor to add or modify presets.",
+  "_comment_2": "Format: { category: { preset_name: prompt_text } }. Categories starting with _ are ignored.",
+  "_comment_3": "Editing existing preset TEXT: changes apply on next workflow run, no restart needed.",
+  "_comment_4": "ADDING new preset names: restart ComfyUI to refresh dropdown menus.",
+  "_design_philosophy": "All presets use POSITIVE constraint phrasing because Nano Banana Pro / Gemini 3 Pro Image responds better to 'preserve X' than 'do not change X'.",
+
+  "preservation": {
+    "strict_anchor": "Preserve the exact geometry, composition, proportions, fenestration pattern, and facade design shown in the input image. Maintain every architectural element, material logic, and structural relationship identically. Apply only surface-level photographic treatment as described below; do not invent, remove, or rearrange any architectural feature",
+
+    "standard_anchor": "Preserve the geometry, composition, and overall design intent of the input image. Maintain proportions, window placement, facade rhythm, and structural elements. Refine only material specificity, lighting quality, and atmospheric context",
+
+    "refinement_allowed": "Preserve the architectural design, geometry, and composition of the input image. Maintain the building's form, fenestration, and proportions. Allow refinement of input artifacts (rough surfaces, draft-quality elements) into clean, finished material treatment while keeping all design decisions intact",
+
+    "restraint": "Apply restrained, credible treatment characteristic of professional architectural photography rather than competition-render theatrics. Use realistic lighting that respects the actual scene, natural color saturation, and a clean composition focused on the architecture itself",
+
+    "no_clutter": "Maintain a clean, considered composition focused on the architecture. Include only contextual elements that are appropriate for the building's use; avoid extraneous props, decorative additions, or visual clutter that would distract from the architectural subject",
+
+    "competition_grade": "Apply competition-board presentation quality: confident framing, hero lighting that flatters the architecture, considered relationship between building and site, sufficient atmospheric depth without theatrical excess"
+  },
+
+  "lighting": {
+    "morning_soft": "soft early-morning sunlight from a low angle, gentle warm tones, long soft shadows, calm and quiet atmospheric mood, sky transitioning from pale yellow at horizon to soft blue overhead",
+
+    "midday_clear": "high midday sun, strong directional shadows, vibrant color saturation, fully lit facades, deep blue sky with minimal clouds, crisp light defining architectural geometry",
+
+    "golden_hour": "golden hour with warm directional sunlight, hero light grazing surfaces, long dramatic shadows, sky transitioning from amber and rose at horizon to deep blue overhead, surfaces catching warm rim light",
+
+    "blue_hour": "blue hour twilight, deep cobalt sky, interior lights glowing warm against cool exterior light, balanced ambient illumination making both interior and exterior visible, peaceful contemplative mood — characteristic timing for high-end Gulf residential photography",
+
+    "blue_hour_dubai": "Dubai blue hour twilight, deep dusty cobalt sky transitioning to warm horizon glow, building interior lights spilling out warmly through large glazing, landscape lighting accenting palms and architectural features, signature high-end UAE residential timing",
+
+    "overcast_diffuse": "soft overcast daylight, evenly diffused illumination with no harsh shadows, muted color palette, neutral white-gray sky, materials reading clearly without glare, calm editorial mood",
+
+    "overcast_dramatic": "heavy overcast with a dramatic break in clouds, single shaft of sunlight cutting through to hit the building, theatrical contrast, brooding sky, cinematic atmosphere",
+
+    "raking_afternoon": "low-angle raking afternoon sunlight from one side, light revealing surface texture and material grain, deep contrast between lit and shadowed surfaces, sculptural quality emphasizing architectural depth",
+
+    "night_warm_glow": "nighttime exterior, building interior lights glowing warm through windows, exterior architectural lighting accenting key elements, deep navy sky with subtle gradient, surrounding context falling into soft darkness",
+
+    "interior_natural": "natural daylight flooding interior space through windows, soft falloff into deeper rooms, warm bounce light from interior surfaces, accurate exposure balancing exterior view through windows with interior detail"
+  },
+
+  "atmosphere": {
+    "clear_pristine": "clear atmospheric conditions, high visibility, crisp distant detail, clean fresh air, no atmospheric haze",
+
+    "light_haze": "subtle atmospheric haze softening distant elements, gentle aerial perspective, slightly desaturated background, sense of depth and scale",
+
+    "morning_mist": "low ground mist hugging the base of the building, soft veiled light, faint atmospheric glow, quiet ethereal mood",
+
+    "warm_dust_gulf": "warm subtle dust haze characteristic of Gulf desert climate, golden particulate light especially at sunrise and sunset, soft atmospheric warmth, sense of arid environment without obscuring detail",
+
+    "humid_coastal": "subtle humid coastal haze, soft tropical light, sense of moisture in the air, gentle atmospheric saturation appropriate to seaside Gulf locations",
+
+    "rain_recent": "recent rainfall has left surfaces wet and reflective, puddles on the ground catching light and reflections, damp materials reading slightly darker than dry, freshly-washed clarity",
+
+    "dramatic_clouds": "dramatic dynamic cloud formations filling the sky, layered cloud structure with depth, shafts of light breaking through, cinematic sky as a featured element",
+
+    "neutral_studio": "neutral studio atmospheric conditions, no weather effects, evenly distributed atmospheric clarity, allowing the architecture to be the sole subject"
+  },
+
+  "style": {
+    "photoreal_editorial": "professional architectural photography, shot on medium format with tilt-shift lens for clean vertical lines, color-graded for editorial publication, restrained color palette, sharp focus on subject with natural depth of field, characteristic of high-end professional architectural photography",
+
+    "film_portra": "shot on Kodak Portra 400 medium format film, organic film grain, warm shadows and slightly cool highlights, gentle contrast curve, hand-held photographic feel without digital sterility, slightly imperfect tonal response that reads as authentic",
+
+    "competition_render": "high-impact architectural competition render, slightly stylized to emphasize concept and atmosphere, dramatic but credible lighting choices, hero presentation quality",
+
+    "hasselblad_clean": "shot on Hasselblad medium format digital, ultra-sharp resolution, clean color science, restrained editorial palette, maximum technical quality, characteristic of high-end commercial architectural photography",
+
+    "watercolor_traditional": "traditional architectural watercolor illustration, visible paint texture and brush strokes, soft edges bleeding into surrounding paper, hand-painted character with controlled looseness, paper texture visible",
+
+    "ink_line_drawing": "clean architectural line drawing, precise ink lines defining all geometry, minimal tonal shading using parallel hatching only, traditional drafted character, paper-white background",
+
+    "loose_concept_sketch": "loose conceptual architectural sketch, visible underdrawing, gestural quality, soft pencil and ink marks, unfinished feel suggesting early-stage exploration",
+
+    "cinematic_arri": "cinematic look as if shot on Arri Alexa with anamorphic lens, slight horizontal lens flares from light sources, characteristic cinematic color grading, organic film-like motion-picture aesthetic",
+
+    "magazine_dwell": "clean contemporary residential magazine aesthetic, neutral natural tones, lifestyle-adjacent composition, characteristic of Dwell or Architectural Digest editorial style"
+  },
+
+  "camera": {
+    "eye_level_human": "human eye-level viewpoint at standing height, frontal or slight three-quarter angle to the building, scale-relatable composition, viewer feels present in the space",
+
+    "low_hero_angle": "slightly low camera angle looking up at the building, hero-shot composition emphasizing scale and presence, dramatic foreshortening on vertical elements",
+
+    "elevated_three_quarter": "elevated three-quarter perspective showing two facades and the roof simultaneously, drone or upper-floor neighbor viewpoint, comprehensive understanding of the volume",
+
+    "wide_context": "wide-angle composition showing the building in its surrounding site and context, neighboring buildings or landscape framing the subject",
+
+    "tight_detail": "tight close-up composition focused on a specific architectural element or material junction, shallow depth of field, attention to construction detail and material craft",
+
+    "interior_outward": "interior viewpoint looking outward toward an exterior view, framing the relationship between interior space and surroundings, threshold condition emphasized",
+
+    "aerial_top_down": "near-aerial elevated viewpoint showing the building plan and roofscape in context, site relationships clearly readable",
+
+    "tilt_shift_corrected": "tilt-shift architectural perspective with perfectly vertical lines, formal frontal composition, no perspective distortion, characteristic of professional architectural documentation",
+
+    "street_arrival": "street-level arrival view showing the building approach, driveway, gate, and street relationship, characteristic of luxury residential entry sequences"
+  },
+
+  "materials": {
+    "travertine_signature": "honed travertine stone cladding with characteristic warm creamy beige tones and subtle horizontal grain banding, paired with white textured plaster on solid wall planes, accented with warm honey-toned timber on cantilevered soffits and screens, large floor-to-ceiling glazing with minimal mullions, bronze or anodized aluminum trim details — premium high-end Gulf residential character",
+
+    "travertine_white_plaster": "honed travertine stone cladding showing warm creamy beige veining and natural variation, white textured plaster (slightly matte, hand-applied character) on contrasting wall planes, materials reading as a deliberate composition between warm natural stone and clean architectural white",
+
+    "travertine_mashrabiya": "honed travertine stone cladding paired with white perforated mashrabiya screen elements creating geometric shadow patterns, warm interior glow filtering through the perforations creating dappled light on adjacent surfaces, contemporary expression of Middle Eastern architectural language",
+
+    "travertine_warm_timber": "honed travertine stone walls with warm honey-toned timber accents on cantilevered soffits, ceilings, and slatted screens, materials carrying tactile warmth and craftsmanship, layered natural palette appropriate to luxury Gulf residential architecture",
+
+    "white_plaster_timber_screens": "white textured plaster walls with vertical timber slatted screen elements in warm oak or teak tones, minimalist composition emphasizing material contrast, large glazing behind the screens allowing controlled light filtration",
+
+    "premium_natural": "premium natural materials reading clearly: honed stone with subtle aggregate, vertical timber cladding with weathered silver patina or honey-toned grain, warm bronze metal accents, all materials showing their authentic character and craft",
+
+    "industrial_refined": "refined industrial palette: exposed concrete with subtle form-tie marks and aggregate texture, steel with brushed or matte finish, large-format glass panels with minimal mullions, clean junctions revealing construction logic",
+
+    "warm_residential": "warm residential material palette: oak or walnut joinery with visible grain, soft natural textiles, terracotta or warm stone flooring, brass or aged-copper hardware, materials inviting tactile engagement",
+
+    "minimalist_monochrome": "restrained monochromatic material palette: white plaster or limestone, pale concrete, glass, single accent material, deliberately limited color range emphasizing form and light over decoration",
+
+    "high_tech_precision": "precision-engineered facade systems: anodized aluminum panels with crisp shadow gaps, structural glazing with minimal supports, parametric metal cladding patterns, clean machined edges"
+  },
+
+  "people": {
+    "none_pure_architecture": "no figures present, pure architectural study, the building and its space are the sole subject",
+
+    "single_silhouette": "include a single silhouetted figure for scale, positioned thoughtfully in the composition, ethnicity not emphasized, the figure reads primarily as a human presence and proportional reference",
+
+    "scale_figures_only": "include silhouetted scale figures for proportional reference, positioned to communicate building scale clearly, no narrative occupation implied",
+
+    "few_emirati": "include a few figures of Emirati ethnicity, men in traditional white kandura/dishdasha with white ghutra naturally draped (no iqal cord), women in elegant black abayas with shayla, naturally engaged with the space, photographed in a respectful documentary manner appropriate to UAE high-end residential context",
+
+    "few_saudi": "include a few figures of Saudi Arabian ethnicity, men in traditional white thobes with red-and-white shemagh ghutra held in place by black iqal cord, women in elegant flowing black abayas with optional hijab, naturally engaged with the space, photographed in a respectful documentary manner",
+
+    "few_qatari": "include a few figures of Qatari ethnicity, men in traditional white thobes with crisp structured white ghutra (Qatari style, slightly higher and more architectural in shape), women in elegant black abayas, naturally engaged with the space, photographed in a respectful documentary manner",
+
+    "few_omani": "include a few figures of Omani ethnicity, men in traditional white dishdasha with distinctive embroidered kummah cap or wrapped massar headwrap (often colorful), women in elegant attire with the Omani lihaf or contemporary modest dress, naturally engaged with the space",
+
+    "few_gulf_mixed": "include a few figures of mixed Gulf Arab ethnicity (Emirati, Saudi, Qatari, Omani, Kuwaiti, Bahraini), in a natural mix of traditional Gulf attire — white thobes/kanduras and black abayas — naturally engaged with the space, photographed in a respectful documentary manner",
+
+    "single_emirati": "include a single figure of Emirati ethnicity in traditional white kandura with white ghutra, positioned thoughtfully in the composition, providing scale and human presence appropriate to UAE residential setting",
+
+    "few_levantine_arab": "include a few figures of Levantine Arab ethnicity (Lebanese, Syrian, Jordanian, Palestinian) in contemporary modern attire characteristic of the cosmopolitan Levant, naturally engaged with the space",
+
+    "few_european": "include a few figures of European ethnicity, dressed in contemporary modern attire appropriate to a temperate climate, naturally engaged with the space, photographed in a respectful documentary manner",
+
+    "few_afro_diaspora": "include a few figures of African diaspora ethnicity (African American, Afro-Caribbean, Afro-European), in contemporary modern professional or smart-casual attire characteristic of cosmopolitan urban settings, naturally engaged with the space — modern and worldly rather than traditional African dress",
+
+    "few_afro_american": "include a few figures of African American ethnicity in contemporary professional or upscale casual attire, naturally engaged with the space, characteristic of high-end urban residential settings, photographed in a respectful documentary manner",
+
+    "few_asian": "include a few figures of East Asian or Southeast Asian ethnicity, dressed in contemporary modern attire, naturally engaged with the space, photographed in a respectful documentary manner",
+
+    "few_south_asian": "include a few figures of South Asian ethnicity (Indian, Pakistani, Bangladeshi, Sri Lankan), in a mix of contemporary modern and traditional attire, naturally engaged with the space",
+
+    "few_mixed_diverse": "include a few figures of mixed and diverse ethnicities representing global cosmopolitan populations (mix of Gulf Arab, European, African diaspora, Asian, South Asian), in contemporary modern attire, naturally engaged with the space",
+
+    "couple_diverse": "include a couple of mixed ethnicity engaged with each other or the space, dressed in contemporary attire, providing both scale and a sense of inhabitation"
+  },
+
+  "scale_life": {
+    "none": "",
+    "morning_quiet": "early-morning quiet activity: a single figure with coffee, soft pace, minimal occupation",
+    "weekend_relaxed": "weekend relaxed activity: people strolling, pausing, taking in the architecture without urgency",
+    "business_active": "weekday business activity: figures walking with purpose, professional attire, sense of building in active use",
+    "family_activity": "family activity: parents with children, casual movement, sense of welcoming residential space",
+    "evening_arrival": "evening arrival activity: figures exiting cars, walking toward the entrance, sense of returning home or hosting guests",
+    "weathered_authentic": "subtle authentic weathering and patina: wear patterns where humans naturally touch surfaces, slight irregularities showing real-world use, building feels lived-in rather than freshly delivered"
+  },
+
+  "cars": {
+    "none": "",
+
+    "hero_silver_mercedes": "include a silver Mercedes-Benz S-Class sedan as a hero element parked in the foreground or driveway, communicating the luxury residential character of the property, photographed naturally as part of the scene without dominating the composition",
+
+    "hero_dark_luxury": "include a dark luxury sedan (Bentley Continental, Rolls-Royce Ghost, or Mercedes-Maybach in dark navy or black) parked thoughtfully in the foreground, communicating high-end residential character",
+
+    "passing_motion_blur": "include a subtly motion-blurred passing car on the street to suggest life and use without dominating the composition, the car secondary to the architecture",
+
+    "two_luxury_parked": "include two contemporary luxury sedans (silver and white tones, executive class) parked in the driveway or street, communicating an active high-end residential context — natural integration not staged display",
+
+    "supercar_hero": "include a single high-end sports car (Porsche 911, McLaren, or similar) as a hero element in the driveway, conveying performance luxury character",
+
+    "executive_arrival": "include one contemporary executive sedan (Mercedes E-Class or S-Class, BMW 7 Series, or similar) arriving or parked at the entrance, suggesting a moment of arrival or hosting"
+  },
+
+  "surroundings": {
+    "preserve_input": "preserve the surrounding context, landscape, and site conditions exactly as shown in the input image, refining only quality and detail without introducing new contextual elements",
+
+    "enhance_landscape": "refine the existing landscape with attention to detail: better-defined palm fronds, more naturalistic ground cover and pampas grasses, subtle integrated lighting in the planting beds, but maintain the same plant species and overall composition shown in the input",
+
+    "dubai_residential_district": "set within a Dubai high-end residential district context: similar contemporary villas suggested in the soft distance, palm-lined streets, subtle hint of sea or skyline beyond, characteristic of communities like Emirates Hills, Palm Jumeirah, or Al Barari",
+
+    "coastal_view": "extend the surroundings with a subtle coastal context: hint of sea or shore visible beyond the building, sense of waterfront or coastal residential setting characteristic of UAE beachfront properties",
+
+    "lush_tropical_garden": "elaborate the landscape into a fully realized tropical garden with mature date palms and coconut palms, flowering trees including frangipani and bougainvillea, integrated water features, and curated planting characteristic of a luxury private estate",
+
+    "minimal_pure_focus": "simplify surroundings to minimal landscape, focusing attention on the building itself, neutral ground plane and abstract context",
+
+    "desert_edge_natural": "place the building at the edge of a natural desert landscape with sandy ground, subtle dune forms, and minimal native vegetation, characteristic of edge-of-development sites in Gulf regions",
+
+    "private_pool_garden": "private pool and garden context with mature landscaping, integrated water feature, and curated outdoor furniture, suggesting an established luxury private residence"
+  }
+}

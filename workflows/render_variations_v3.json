@@ -1,0 +1,1387 @@
+{
+  "id": "render-variations-v3",
+  "revision": 0,
+  "last_node_id": 200,
+  "last_link_id": 25,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "Note",
+      "pos": [
+        -1100,
+        -380
+      ],
+      "size": [
+        620,
+        320
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "📖 RENDER VARIATIONS STUDIO v3 — read me",
+      "properties": {},
+      "widgets_values": [
+        "🏛️ ONE INPUT, FOUR HIGH-END VARIATIONS\n\nDrop a basic render or screenshot in the INPUT IMAGE node. Each branch's\n(AV) Matrix node has 10 dropdowns — pick combinations to get 4 distinct\nvariations in parallel. The architecture stays preserved.\n\n🎛️ THE 10 CATEGORIES (in (AV) Matrix nodes)\n\n  preservation   — anchors geometry (most important)\n  camera         — composition / viewpoint\n  lighting       — time of day\n  atmosphere     — weather / haze\n  style          — photographic equipment + aesthetic\n  materials      — palette (includes firm signature)\n  people         — figures with ethnicity options\n  scale_life     — activity level\n  cars           — hero vehicles\n  surroundings   — context (preserve_input is the safe default)\n\nPick (none) on any axis you don't want active.\n\n✏️ Edit ComfyUI/user/archviz_presets.json to add or modify presets.\nRestart ComfyUI for new preset names; existing text edits apply on next run."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 10,
+      "type": "LoadImage",
+      "pos": [
+        -1100,
+        0
+      ],
+      "size": [
+        320,
+        320
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "📁 INPUT IMAGE",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.20.1",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "PreviewImage",
+      "pos": [
+        -760,
+        0
+      ],
+      "size": [
+        240,
+        280
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 1
+        }
+      ],
+      "outputs": [],
+      "title": "Preview",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.20.1",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 12,
+      "type": "PrimitiveString",
+      "pos": [
+        -1100,
+        350
+      ],
+      "size": [
+        320,
+        80
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "title": "💾 OUTPUT_PATH",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.20.1",
+        "Node name for S&R": "PrimitiveString"
+      },
+      "widgets_values": [
+        "C:\\Users\\rkhalid\\Downloads\\Variations"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "PrimitiveString",
+      "pos": [
+        -1100,
+        460
+      ],
+      "size": [
+        320,
+        220
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            10,
+            11,
+            12,
+            13
+          ]
+        }
+      ],
+      "title": "🛠️ NANO BANANA SYSTEM PROMPT",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.20.1",
+        "Node name for S&R": "PrimitiveString"
+      },
+      "widgets_values": [
+        "You are an expert architectural visualization engine. Always produce a high-quality image as instructed. Strictly preserve the geometry, composition, and architectural design shown in the input image — building form, facade design, fenestration pattern, and proportions are sacred. Apply only the photographic, lighting, atmospheric, material-finish, and human-occupancy treatments described in the prompt. Never invent new architectural elements, change the building's form, alter window or door placement, or add decorative additions not requested. Render as if photographing the existing design, not redesigning it."
+      ]
+    },
+    {
+      "id": 14,
+      "type": "PrimitiveString",
+      "pos": [
+        -1100,
+        700
+      ],
+      "size": [
+        320,
+        140
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            14,
+            15,
+            16,
+            17
+          ]
+        }
+      ],
+      "title": "✏️ USER OVERRIDE (optional)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.20.1",
+        "Node name for S&R": "PrimitiveString"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 15,
+      "type": "Note",
+      "pos": [
+        -760,
+        700
+      ],
+      "size": [
+        240,
+        140
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "🤖 LLM ENHANCER (optional)",
+      "properties": {},
+      "widgets_values": [
+        "Drop a Gemini Flash text node here.\n\nWire: USER OVERRIDE → Gemini → all 4 Matrix override inputs.\n\nUse a system prompt that rewrites rough notes into clean visual language WITHOUT redescribing lighting/style/camera (those are preset-handled)."
+      ],
+      "color": "#234",
+      "bgcolor": "#345"
+    },
+    {
+      "id": 30,
+      "type": "ArchVizPresetMatrix",
+      "pos": [
+        -360,
+        0
+      ],
+      "size": [
+        340,
+        340
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "override",
+          "type": "STRING",
+          "shape": 7,
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            18
+          ]
+        },
+        {
+          "name": "filename_tag",
+          "type": "STRING",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "title": "🌿 Variation 1 Matrix",
+      "properties": {
+        "Node name for S&R": "ArchVizPresetMatrix"
+      },
+      "widgets_values": [
+        "standard_anchor",
+        "eye_level_human",
+        "blue_hour_dubai",
+        "warm_dust_gulf",
+        "photoreal_editorial",
+        "travertine_signature",
+        "few_emirati",
+        "evening_arrival",
+        "hero_silver_mercedes",
+        "preserve_input",
+        ". "
+      ]
+    },
+    {
+      "id": 40,
+      "type": "d3e4f5a6-b7c8-4d9e-0f1a-2b3c4d5e6f7a",
+      "pos": [
+        20,
+        0
+      ],
+      "size": [
+        240,
+        220
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 18
+        },
+        {
+          "name": "system_prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "system_prompt"
+          },
+          "link": 10
+        },
+        {
+          "name": "output_path",
+          "type": "STRING",
+          "widget": {
+            "name": "output_path"
+          },
+          "link": 6
+        },
+        {
+          "name": "filename_tag",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 22
+        }
+      ],
+      "outputs": [],
+      "title": "🌿 Variation Branch 1",
+      "properties": {
+        "proxyWidgets": [
+          [
+            "200",
+            "prompt"
+          ],
+          [
+            "200",
+            "system_prompt"
+          ],
+          [
+            "201",
+            "output_path"
+          ],
+          [
+            "201",
+            "filename_prefix"
+          ]
+        ],
+        "cnr_id": "comfy-core",
+        "ver": "0.20.1"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 31,
+      "type": "ArchVizPresetMatrix",
+      "pos": [
+        -360,
+        380
+      ],
+      "size": [
+        340,
+        340
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "override",
+          "type": "STRING",
+          "shape": 7,
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            19
+          ]
+        },
+        {
+          "name": "filename_tag",
+          "type": "STRING",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "title": "🌿 Variation 2 Matrix",
+      "properties": {
+        "Node name for S&R": "ArchVizPresetMatrix"
+      },
+      "widgets_values": [
+        "standard_anchor",
+        "elevated_three_quarter",
+        "golden_hour",
+        "warm_dust_gulf",
+        "film_portra",
+        "travertine_mashrabiya",
+        "few_gulf_mixed",
+        "weekend_relaxed",
+        "two_luxury_parked",
+        "dubai_residential_district",
+        ". "
+      ]
+    },
+    {
+      "id": 41,
+      "type": "d3e4f5a6-b7c8-4d9e-0f1a-2b3c4d5e6f7a",
+      "pos": [
+        20,
+        380
+      ],
+      "size": [
+        240,
+        220
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 3
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 19
+        },
+        {
+          "name": "system_prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "system_prompt"
+          },
+          "link": 11
+        },
+        {
+          "name": "output_path",
+          "type": "STRING",
+          "widget": {
+            "name": "output_path"
+          },
+          "link": 7
+        },
+        {
+          "name": "filename_tag",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 23
+        }
+      ],
+      "outputs": [],
+      "title": "🌿 Variation Branch 2",
+      "properties": {
+        "proxyWidgets": [
+          [
+            "200",
+            "prompt"
+          ],
+          [
+            "200",
+            "system_prompt"
+          ],
+          [
+            "201",
+            "output_path"
+          ],
+          [
+            "201",
+            "filename_prefix"
+          ]
+        ],
+        "cnr_id": "comfy-core",
+        "ver": "0.20.1"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 32,
+      "type": "ArchVizPresetMatrix",
+      "pos": [
+        -360,
+        760
+      ],
+      "size": [
+        340,
+        340
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "override",
+          "type": "STRING",
+          "shape": 7,
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            20
+          ]
+        },
+        {
+          "name": "filename_tag",
+          "type": "STRING",
+          "links": [
+            24
+          ]
+        }
+      ],
+      "title": "🌿 Variation 3 Matrix",
+      "properties": {
+        "Node name for S&R": "ArchVizPresetMatrix"
+      },
+      "widgets_values": [
+        "competition_grade",
+        "low_hero_angle",
+        "overcast_dramatic",
+        "dramatic_clouds",
+        "competition_render",
+        "travertine_warm_timber",
+        "few_afro_diaspora",
+        "morning_quiet",
+        "hero_dark_luxury",
+        "preserve_input",
+        ". "
+      ]
+    },
+    {
+      "id": 42,
+      "type": "d3e4f5a6-b7c8-4d9e-0f1a-2b3c4d5e6f7a",
+      "pos": [
+        20,
+        760
+      ],
+      "size": [
+        240,
+        220
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 4
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 20
+        },
+        {
+          "name": "system_prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "system_prompt"
+          },
+          "link": 12
+        },
+        {
+          "name": "output_path",
+          "type": "STRING",
+          "widget": {
+            "name": "output_path"
+          },
+          "link": 8
+        },
+        {
+          "name": "filename_tag",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 24
+        }
+      ],
+      "outputs": [],
+      "title": "🌿 Variation Branch 3",
+      "properties": {
+        "proxyWidgets": [
+          [
+            "200",
+            "prompt"
+          ],
+          [
+            "200",
+            "system_prompt"
+          ],
+          [
+            "201",
+            "output_path"
+          ],
+          [
+            "201",
+            "filename_prefix"
+          ]
+        ],
+        "cnr_id": "comfy-core",
+        "ver": "0.20.1"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 33,
+      "type": "ArchVizPresetMatrix",
+      "pos": [
+        -360,
+        1140
+      ],
+      "size": [
+        340,
+        340
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "override",
+          "type": "STRING",
+          "shape": 7,
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            21
+          ]
+        },
+        {
+          "name": "filename_tag",
+          "type": "STRING",
+          "links": [
+            25
+          ]
+        }
+      ],
+      "title": "🌿 Variation 4 Matrix",
+      "properties": {
+        "Node name for S&R": "ArchVizPresetMatrix"
+      },
+      "widgets_values": [
+        "strict_anchor",
+        "tilt_shift_corrected",
+        "overcast_diffuse",
+        "neutral_studio",
+        "hasselblad_clean",
+        "travertine_white_plaster",
+        "none_pure_architecture",
+        "none",
+        "none",
+        "minimal_pure_focus",
+        ". "
+      ]
+    },
+    {
+      "id": 43,
+      "type": "d3e4f5a6-b7c8-4d9e-0f1a-2b3c4d5e6f7a",
+      "pos": [
+        20,
+        1140
+      ],
+      "size": [
+        240,
+        220
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 5
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 21
+        },
+        {
+          "name": "system_prompt",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "system_prompt"
+          },
+          "link": 13
+        },
+        {
+          "name": "output_path",
+          "type": "STRING",
+          "widget": {
+            "name": "output_path"
+          },
+          "link": 9
+        },
+        {
+          "name": "filename_tag",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 25
+        }
+      ],
+      "outputs": [],
+      "title": "🌿 Variation Branch 4",
+      "properties": {
+        "proxyWidgets": [
+          [
+            "200",
+            "prompt"
+          ],
+          [
+            "200",
+            "system_prompt"
+          ],
+          [
+            "201",
+            "output_path"
+          ],
+          [
+            "201",
+            "filename_prefix"
+          ]
+        ],
+        "cnr_id": "comfy-core",
+        "ver": "0.20.1"
+      },
+      "widgets_values": []
+    }
+  ],
+  "links": [
+    [
+      1,
+      10,
+      0,
+      11,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      10,
+      0,
+      40,
+      0,
+      "IMAGE"
+    ],
+    [
+      3,
+      10,
+      0,
+      41,
+      0,
+      "IMAGE"
+    ],
+    [
+      4,
+      10,
+      0,
+      42,
+      0,
+      "IMAGE"
+    ],
+    [
+      5,
+      10,
+      0,
+      43,
+      0,
+      "IMAGE"
+    ],
+    [
+      6,
+      12,
+      0,
+      40,
+      3,
+      "STRING"
+    ],
+    [
+      7,
+      12,
+      0,
+      41,
+      3,
+      "STRING"
+    ],
+    [
+      8,
+      12,
+      0,
+      42,
+      3,
+      "STRING"
+    ],
+    [
+      9,
+      12,
+      0,
+      43,
+      3,
+      "STRING"
+    ],
+    [
+      10,
+      13,
+      0,
+      40,
+      2,
+      "STRING"
+    ],
+    [
+      11,
+      13,
+      0,
+      41,
+      2,
+      "STRING"
+    ],
+    [
+      12,
+      13,
+      0,
+      42,
+      2,
+      "STRING"
+    ],
+    [
+      13,
+      13,
+      0,
+      43,
+      2,
+      "STRING"
+    ],
+    [
+      14,
+      14,
+      0,
+      30,
+      10,
+      "STRING"
+    ],
+    [
+      15,
+      14,
+      0,
+      31,
+      10,
+      "STRING"
+    ],
+    [
+      16,
+      14,
+      0,
+      32,
+      10,
+      "STRING"
+    ],
+    [
+      17,
+      14,
+      0,
+      33,
+      10,
+      "STRING"
+    ],
+    [
+      18,
+      30,
+      0,
+      40,
+      1,
+      "STRING"
+    ],
+    [
+      19,
+      31,
+      0,
+      41,
+      1,
+      "STRING"
+    ],
+    [
+      20,
+      32,
+      0,
+      42,
+      1,
+      "STRING"
+    ],
+    [
+      21,
+      33,
+      0,
+      43,
+      1,
+      "STRING"
+    ],
+    [
+      22,
+      30,
+      1,
+      40,
+      4,
+      "STRING"
+    ],
+    [
+      23,
+      31,
+      1,
+      41,
+      4,
+      "STRING"
+    ],
+    [
+      24,
+      32,
+      1,
+      42,
+      4,
+      "STRING"
+    ],
+    [
+      25,
+      33,
+      1,
+      43,
+      4,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "🎛️ INPUT & SHARED CONFIG",
+      "bounding": [
+        -1120,
+        -50,
+        700,
+        920
+      ],
+      "color": "#3f789e",
+      "font_size": 22,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "🌿 Variation Branch 1",
+      "bounding": [
+        -380,
+        -30,
+        700,
+        360
+      ],
+      "color": "#8AA",
+      "font_size": 18,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "🌿 Variation Branch 2",
+      "bounding": [
+        -380,
+        350,
+        700,
+        360
+      ],
+      "color": "#8A8",
+      "font_size": 18,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "🌿 Variation Branch 3",
+      "bounding": [
+        -380,
+        730,
+        700,
+        360
+      ],
+      "color": "#A8A",
+      "font_size": 18,
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "🌿 Variation Branch 4",
+      "bounding": [
+        -380,
+        1110,
+        700,
+        360
+      ],
+      "color": "#AA8",
+      "font_size": 18,
+      "flags": {}
+    }
+  ],
+  "definitions": {
+    "subgraphs": [
+      {
+        "id": "d3e4f5a6-b7c8-4d9e-0f1a-2b3c4d5e6f7a",
+        "version": 1,
+        "state": {
+          "lastGroupId": 0,
+          "lastNodeId": 201,
+          "lastLinkId": 105,
+          "lastRerouteId": 0
+        },
+        "revision": 0,
+        "config": {},
+        "name": "Variation Branch",
+        "inputNode": {
+          "id": -10,
+          "bounding": [
+            220,
+            80,
+            140,
+            168
+          ]
+        },
+        "outputNode": {
+          "id": -20,
+          "bounding": [
+            1180,
+            130,
+            128,
+            48
+          ]
+        },
+        "inputs": [
+          {
+            "id": "30000000-0000-0000-0000-000000000001",
+            "name": "image",
+            "type": "IMAGE",
+            "linkIds": [
+              100
+            ],
+            "localized_name": "image",
+            "pos": [
+              51,
+              24
+            ]
+          },
+          {
+            "id": "30000000-0000-0000-0000-000000000002",
+            "name": "prompt",
+            "type": "STRING",
+            "linkIds": [
+              101
+            ],
+            "localized_name": "prompt",
+            "pos": [
+              51,
+              44
+            ]
+          },
+          {
+            "id": "30000000-0000-0000-0000-000000000003",
+            "name": "system_prompt",
+            "type": "STRING",
+            "linkIds": [
+              102
+            ],
+            "localized_name": "system_prompt",
+            "shape": 7,
+            "pos": [
+              51,
+              64
+            ]
+          },
+          {
+            "id": "30000000-0000-0000-0000-000000000004",
+            "name": "output_path",
+            "type": "STRING",
+            "linkIds": [
+              103
+            ],
+            "localized_name": "output_path",
+            "pos": [
+              51,
+              84
+            ]
+          },
+          {
+            "id": "30000000-0000-0000-0000-000000000005",
+            "name": "filename_tag",
+            "type": "STRING",
+            "linkIds": [
+              104
+            ],
+            "localized_name": "filename_tag",
+            "pos": [
+              51,
+              104
+            ]
+          }
+        ],
+        "outputs": [],
+        "widgets": [],
+        "nodes": [
+          {
+            "id": 200,
+            "type": "GeminiImage2Node",
+            "pos": [
+              400,
+              0
+            ],
+            "size": [
+              380,
+              348
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "images",
+                "name": "images",
+                "shape": 7,
+                "type": "IMAGE",
+                "link": 100
+              },
+              {
+                "localized_name": "files",
+                "name": "files",
+                "shape": 7,
+                "type": "GEMINI_INPUT_FILES",
+                "link": null
+              },
+              {
+                "localized_name": "prompt",
+                "name": "prompt",
+                "type": "STRING",
+                "widget": {
+                  "name": "prompt"
+                },
+                "link": 101
+              },
+              {
+                "localized_name": "system_prompt",
+                "name": "system_prompt",
+                "shape": 7,
+                "type": "STRING",
+                "widget": {
+                  "name": "system_prompt"
+                },
+                "link": 102
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  105
+                ]
+              },
+              {
+                "localized_name": "STRING",
+                "name": "STRING",
+                "type": "STRING",
+                "links": []
+              }
+            ],
+            "title": "Nano Banana",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.20.1",
+              "Node name for S&R": "GeminiImage2Node"
+            },
+            "widgets_values": [
+              "",
+              "gemini-3-pro-image-preview",
+              137841520910138,
+              "randomize",
+              "auto",
+              "4K",
+              "IMAGE+TEXT",
+              ""
+            ],
+            "color": "#432",
+            "bgcolor": "#653"
+          },
+          {
+            "id": 201,
+            "type": "Image Save",
+            "pos": [
+              820,
+              0
+            ],
+            "size": [
+              320,
+              420
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "images",
+                "name": "images",
+                "type": "IMAGE",
+                "link": 105
+              },
+              {
+                "localized_name": "output_path",
+                "name": "output_path",
+                "type": "STRING",
+                "widget": {
+                  "name": "output_path"
+                },
+                "link": 103
+              },
+              {
+                "localized_name": "filename_prefix",
+                "name": "filename_prefix",
+                "type": "STRING",
+                "widget": {
+                  "name": "filename_prefix"
+                },
+                "link": 104
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "images",
+                "name": "images",
+                "type": "IMAGE",
+                "links": []
+              },
+              {
+                "localized_name": "files",
+                "name": "files",
+                "type": "STRING",
+                "links": []
+              }
+            ],
+            "title": "Save Variation",
+            "properties": {
+              "cnr_id": "was-ns",
+              "ver": "3.0.1",
+              "Node name for S&R": "Image Save"
+            },
+            "widgets_values": [
+              "",
+              "_v_",
+              "_",
+              4,
+              "false",
+              "png",
+              300,
+              100,
+              "true",
+              "false",
+              "prefix_as_filename",
+              "false",
+              "true",
+              "true",
+              "true"
+            ]
+          }
+        ],
+        "groups": [],
+        "links": [
+          {
+            "id": 100,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 200,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 101,
+            "origin_id": -10,
+            "origin_slot": 1,
+            "target_id": 200,
+            "target_slot": 2,
+            "type": "STRING"
+          },
+          {
+            "id": 102,
+            "origin_id": -10,
+            "origin_slot": 2,
+            "target_id": 200,
+            "target_slot": 3,
+            "type": "STRING"
+          },
+          {
+            "id": 103,
+            "origin_id": -10,
+            "origin_slot": 3,
+            "target_id": 201,
+            "target_slot": 1,
+            "type": "STRING"
+          },
+          {
+            "id": 104,
+            "origin_id": -10,
+            "origin_slot": 4,
+            "target_id": 201,
+            "target_slot": 2,
+            "type": "STRING"
+          },
+          {
+            "id": 105,
+            "origin_id": 200,
+            "origin_slot": 0,
+            "target_id": 201,
+            "target_slot": 0,
+            "type": "IMAGE"
+          }
+        ],
+        "extra": {}
+      }
+    ]
+  },
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.45,
+      "offset": [
+        600,
+        200
+      ]
+    },
+    "frontendVersion": "1.43.17"
+  },
+  "version": 0.4
+}
