@@ -76,8 +76,20 @@ All grouped under the **ArchViz** category in the right-click menu.
 | `scale_life` | Activity level + occupancy |
 | `cars` | Hero vehicles for luxury residential |
 | `surroundings` | Context preservation with refinement options |
+| `enhancement` | Upscale, refine, or fix specific elements |
 
 Pick `(none)` on any axis you don't want active. The Matrix node skips empty fragments.
+
+## Enhancement workflows
+
+The `enhancement` category covers a different mode of operation than the descriptive categories. Use it when you have an existing render that needs refinement rather than transformation:
+
+- **Upscaling 1K → 4K:** Use `upscale_4k_full` and set most other categories to `(none)`. Set the Nano Banana resolution to 4K.
+- **Vegetation refinement:** Use `enhance_vegetation_strict` for fidelity, or `enhance_vegetation_creative` if you want richer planting.
+- **Fixing people:** Use `fix_anatomy_full` for comprehensive fixes, or `fix_hands_only` / `fix_faces_only` for surgical passes.
+- **Avoiding face/anatomy issues entirely:** Use `motion_blur_figures` — a professional architectural photography technique that turns rough figures into elegant motion-blurred ghosts.
+
+For enhancement runs, set most descriptive categories (lighting, atmosphere, style, etc.) to `(none)` so the prompt focuses on the refinement instruction. Stacking multiple enhancements in one pass can produce over-sharpened results — one clean pass beats three aggressive ones.
 
 ## Editing the preset library
 

@@ -5,6 +5,31 @@ All notable changes to the ArchViz Preset System are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.0] — 2026-05-08
+
+### Added
+- New `enhancement` category with 10 presets for refinement and upscaling workflows:
+  - `upscale_4k_full` — standard upscale to higher resolution with full preservation
+  - `enhance_architecture_only` — building details, materials, edges focus
+  - `enhance_vegetation_strict` — refine plants without adding new ones
+  - `enhance_vegetation_creative` — refine plants with creative additions allowed
+  - `fix_anatomy_full` — comprehensive people fix (faces + hands + legs + proportions)
+  - `fix_hands_only` — surgical hands-only pass
+  - `fix_faces_only` — surgical faces-only pass
+  - `enhance_materials_textures` — surfaces and texture detail
+  - `motion_blur_figures` — convert rough figures to elegant motion-blur ghosts (pro architectural photography technique)
+  - `subtle_cleanup` — minimal artifact removal, no transformation
+- Filename tag generation now prioritizes the enhancement selection when active
+
+### Changed
+- Matrix node now has 11 categories (was 10) — `enhancement` added at the end
+- Updated load banner to show v3.1 and category count
+
+## [3.0.1] — 2026-05-08
+
+### Fixed
+- Validation script no longer rejects empty preset values (the `scale_life/none` preset is intentionally empty)
+
 ## [3.0.0] — 2026-05-08
 
 ### Added
