@@ -94,6 +94,39 @@ Scene population is split across three independent axes that combine to produce 
 
 The hero archetypes are based on the photographic tradition of Julius Schulman's iconic luxury residential photography (Stahl House, etc.) and modern high-end residential render conventions. The `elegant_woman_flowing_dress` and `elegant_man_tailored` archetypes work with any ethnicity — Western dress for Western ethnicities, abaya/thobe for Gulf ethnicities.
 
+## Recommended workflows for common use cases
+
+### Adding people to an existing finished render
+
+When your input is already a high-quality render and you only want to add figures, use the minimal-change configuration to prevent softening of the rest of the image:
+
+- `preservation` → `people_only_minimal_change`
+- `people` → ethnicity of choice
+- `population_density` → `single_hero`, `hero_with_supporting`, or `multiple_active`
+- `hero_style` → archetype of choice (or `(none)` for non-hero figures)
+- All other categories → `(none)`
+
+The `people_only_minimal_change` preservation preset uses compositing-style language that tells the model to add only the specified figures while leaving every other pixel of the input identical.
+
+### Generating variations of a render
+
+When you want to explore different lighting, atmosphere, or style on the same building, use the standard preservation + descriptive categories:
+
+- `preservation` → `preserve_design` or `preserve_with_polish`
+- `lighting`, `atmosphere`, `style`, etc. → variations per branch
+
+This is what the example workflow `render_variations_v3.json` demonstrates.
+
+### Transforming a screenshot or draft into a polished render
+
+When the input is a SketchUp/Revit screenshot or rough render needing significant uplift:
+
+- `preservation` → `preserve_design`
+- `style` → `photoreal_editorial` or similar finished-look preset
+- `materials`, `lighting`, `atmosphere` → as desired
+
+The model can do substantial transformation here because the input doesn't have fidelity to lose.
+
 ## Enhancement workflows
 
 The `enhancement` category covers a different mode of operation than the descriptive categories. Use it when you have an existing render that needs refinement rather than transformation:

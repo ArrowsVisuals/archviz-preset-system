@@ -5,6 +5,23 @@ All notable changes to the ArchViz Preset System are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.1] — 2026-05-10
+
+### Fixed
+- **Gulf Arab ethnicity presets no longer force both genders to be present.** The v4.0.0 presets said "men in X, women in Y" which the model interpreted as a presence statement — combining `single_hero` + `emirati` (or other Gulf ethnicities) was producing multiple figures instead of one. Rewrote `emirati`, `saudi`, `qatari`, `omani`, and `gulf_mixed` to use "Traditional [X] attire when figures are present: men wear..., women wear..." which is conditional reference rather than presence requirement. Now `single_hero` + Gulf ethnicity correctly produces one figure.
+
+### Added
+- **`preservation/people_only_minimal_change`** — a new preservation preset for the "add people to an existing finished render" workflow. Uses aggressive compositing-style language ("treat the input as a finished photograph that you are adding people to via compositing") to minimize the model's tendency to re-render and soften the rest of the image. Use this with descriptive categories (lighting, atmosphere, style, materials, surroundings) all set to `(none)` for best results — the model will then focus only on adding the specified figures while leaving the rest pixel-identical.
+
+### Recommended workflow for adding people to existing renders
+For minimum quality loss when populating a finished render with figures:
+- `preservation` → `people_only_minimal_change`
+- `people` → ethnicity of choice
+- `population_density` → `single_hero` or `hero_with_supporting`
+- `hero_style` → archetype of choice
+- All other categories → `(none)`
+- Optionally add to USER OVERRIDE: "Only modification: add the specified human figure to the scene. Treat as compositing, not re-rendering."
+
 ## [4.0.0] — 2026-05-10
 
 ⚠️ **Breaking changes** — saved workflows from v3.x will need preset re-selection because category structure and preset names have changed. See migration notes at the bottom of this entry.

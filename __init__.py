@@ -269,5 +269,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
 
 WEB_DIRECTORY = None  # no JS extensions
 
-print(f"[ArchViz] v4.0.0 loaded — 3 nodes ((AV) Preset / Matrix / Assembler) — 13 categories")
+print(f"[ArchViz] v4.0.1 loaded — 3 nodes ((AV) Preset / Matrix / Assembler) — 13 categories")
 print(f"[ArchViz] Presets file: {USER_PRESETS_PATH}")
