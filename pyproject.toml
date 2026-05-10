@@ -1,7 +1,7 @@
 [project]
 name = "archviz-preset-system"
 description = "Curated preset library for high-end architectural visualization with Nano Banana Pro / Gemini 3 Pro Image. Three nodes: (AV) Preset, (AV) Matrix, (AV) Assembler."
-version = "4.0.0"
+version = "4.0.1"
 license = { text = "MIT" }
 dependencies = []
 classifiers = [
