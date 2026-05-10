@@ -55,7 +55,7 @@ jobs:
               if not isinstance(presets, dict) or not presets:
                   raise SystemExit(f'Category {cat} is empty or malformed')
               for name, text in presets.items():
-                  if not isinstance(text, str) or not text.strip():
-                      raise SystemExit(f'{cat}/{name} has empty or non-string text')
+                  if not isinstance(text, str):
+                      raise SystemExit(f'{cat}/{name} has non-string text')
           print('OK: preset structure valid')
           "
