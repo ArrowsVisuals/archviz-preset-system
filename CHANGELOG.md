@@ -5,6 +5,32 @@ All notable changes to the ArchViz Preset System are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.1.0] — 2026-05-10
+
+### Added
+- **3 aerial camera presets** for masterplan and elevated work:
+  - `aerial_oblique_45` — classic 45° oblique drone view, the standard real-estate hero
+  - `aerial_high_overview` — high-altitude near-orthographic for masterplan and site-context shots
+  - `aerial_low_drone` — low-altitude tracking shot for cinematic project hero views
+- **2 aerial atmosphere presets** to control depth and clarity:
+  - `aerial_perspective_strong` — progressive haze fading distant elements (depth and scale)
+  - `clear_aerial_sharp` — exceptionally clear high-altitude air for technical masterplan shots
+- **4 surroundings presets** for project-context variety:
+  - `mixed_use_neighborhood` — ground-floor retail with residential/office above, animated street life
+  - `urban_dense_aerial_context` — surrounding city fabric for masterplan aerials
+  - `coastal_aerial_context` — waterfront context for shoreline projects and resort masterplans
+  - `desert_aerial_context` — sandy/dune surroundings with site infrastructure visible
+
+### Recommended aerial workflow
+- `camera` → `aerial_oblique_45` (most projects) or `aerial_high_overview` (masterplans)
+- `atmosphere` → `aerial_perspective_strong` for hero shots, `clear_aerial_sharp` for technical
+- `surroundings` → match to project context (urban / coastal / desert)
+- `lighting` → `golden_hour` or `morning_soft` work especially well from the air
+- `population_density` → typically `(none)` since figures are too small to read at aerial scale
+
+### Stats
+13 categories, 118 presets total (was 109 in v4.0.1)
+
 ## [4.0.1] — 2026-05-10
 
 ### Fixed

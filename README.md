@@ -117,6 +117,16 @@ When you want to explore different lighting, atmosphere, or style on the same bu
 
 This is what the example workflow `render_variations_v3.json` demonstrates.
 
+### Aerial / masterplan shots
+
+For drone-perspective and aerial views:
+
+- `camera` → `aerial_oblique_45` (45° drone hero), `aerial_high_overview` (masterplan), or `aerial_low_drone` (cinematic)
+- `atmosphere` → `aerial_perspective_strong` (depth and scale) or `clear_aerial_sharp` (technical clarity)
+- `surroundings` → `urban_dense_aerial_context`, `coastal_aerial_context`, or `desert_aerial_context` to match the project setting
+- `lighting` → `golden_hour` or `morning_soft` are especially flattering from the air
+- `population_density` → typically `(none)` — figures are too small to read meaningfully at aerial scale
+
 ### Transforming a screenshot or draft into a polished render
 
 When the input is a SketchUp/Revit screenshot or rough render needing significant uplift:

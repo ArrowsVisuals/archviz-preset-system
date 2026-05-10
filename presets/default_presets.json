@@ -26,7 +26,9 @@
   },
   "atmosphere": {
     "clear_air": "clear atmospheric conditions, high visibility, crisp distant detail, clean fresh air, no atmospheric haze",
+    "clear_aerial_sharp": "exceptionally clear high-altitude air, sharp distant detail with minimal atmospheric softening, technical clarity appropriate to masterplan and site-context aerial views, no haze, no aerial perspective drop-off",
     "light_haze": "subtle atmospheric haze softening distant elements, gentle aerial perspective, slightly desaturated background, sense of depth and scale",
+    "aerial_perspective_strong": "strong aerial perspective with progressive haze fading distant elements into softer tones and reduced contrast, near elements remaining crisp and saturated, giving a powerful sense of depth and scale appropriate to elevated and aerial views",
     "morning_mist": "low ground mist hugging the base of the building, soft veiled light, faint atmospheric glow, quiet ethereal mood",
     "warm_dust_haze": "warm subtle dust haze characteristic of arid desert climate, golden particulate light especially at sunrise and sunset, soft atmospheric warmth, sense of dry environment without obscuring detail",
     "humid_coastal_air": "subtle humid coastal haze, soft tropical light, sense of moisture in the air, gentle atmospheric saturation appropriate to seaside locations",
@@ -53,6 +55,9 @@
     "tight_detail": "tight close-up composition focused on a specific architectural element or material junction, shallow depth of field, attention to construction detail and material craft",
     "interior_outward": "interior viewpoint looking outward toward an exterior view, framing the relationship between interior space and surroundings, threshold condition emphasized",
     "aerial_top_down": "near-aerial elevated viewpoint showing the building plan and roofscape in context, site relationships clearly readable",
+    "aerial_oblique_45": "classic 45-degree oblique aerial drone view, building seen from above and to the side, showing the roof, two facades, and the relationship to the immediate site, the standard hero composition for residential and commercial drone real-estate photography",
+    "aerial_high_overview": "high-altitude aerial overview from a steep downward angle approaching orthographic, the building or masterplan reading as a clear plan with surrounding urban or natural context fully visible, characteristic of masterplan and site-context presentation drawings",
+    "aerial_low_drone": "low-altitude drone tracking shot just above tree-line or rooftop level, dramatic horizontal sweep across the project, building reading as the hero element with strong foreshortening, characteristic of cinematic project hero shots and architectural film opening sequences",
     "tilt_shift_corrected": "tilt-shift architectural perspective with perfectly vertical lines, formal frontal composition, no perspective distortion, characteristic of professional architectural documentation",
     "street_arrival": "street-level arrival view showing the building approach, driveway, gate, and street relationship, characteristic of luxury residential entry sequences"
   },
@@ -120,8 +125,12 @@
     "preserve_input": "preserve the surrounding context, landscape, and site conditions exactly as shown in the input image, refining only quality and detail without introducing new contextual elements",
     "enhance_landscape": "refine the existing landscape with attention to detail: better-defined palm fronds, more naturalistic ground cover and pampas grasses, subtle integrated lighting in planting beds, but maintain the same plant species and overall composition shown in the input",
     "gulf_residential_district": "set within a high-end residential district context characteristic of upscale Gulf coastal communities: similar contemporary villas suggested in the soft distance, palm-lined streets, subtle hint of sea or skyline beyond, sense of an established luxury neighborhood",
+    "mixed_use_neighborhood": "set within a contemporary mixed-use neighborhood: ground-floor retail and cafes spilling onto sidewalks, residential and office floors above, animated street life with pedestrians and outdoor seating, neighboring buildings of varied heights and uses, characteristic of well-designed urban infill development",
     "coastal_distant_view": "extend the surroundings with a subtle coastal context: hint of sea or shore visible beyond the building, sense of waterfront or coastal residential setting",
     "lush_tropical_garden": "elaborate the landscape into a fully realized tropical garden with mature date palms and coconut palms, flowering trees including frangipani and bougainvillea, integrated water features, and curated planting characteristic of a luxury private estate",
+    "urban_dense_aerial_context": "extensive surrounding urban fabric visible from above: streets and blocks reading clearly, neighboring buildings of varied scales, pockets of public space and green areas, infrastructure suggesting an established city district context",
+    "coastal_aerial_context": "coastal aerial context with shoreline, water, and beach clearly visible, the building or development sited in relation to the sea, characteristic of waterfront real estate and resort masterplans",
+    "desert_aerial_context": "desert aerial context with surrounding sandy terrain, subtle dune patterns, scattered native vegetation, and visible site infrastructure connecting the project to the surrounding landscape",
     "minimal_pure_focus": "simplify surroundings to minimal landscape, focusing attention on the building itself, neutral ground plane and abstract context",
     "desert_edge_natural": "place the building at the edge of a natural desert landscape with sandy ground, subtle dune forms, and minimal native vegetation, characteristic of edge-of-development desert sites",
     "private_pool_garden": "private pool and garden context with mature landscaping, integrated water feature, and curated outdoor furniture, suggesting an established luxury private residence"
