@@ -5,6 +5,101 @@ All notable changes to the ArchViz Preset System are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.0] — 2026-05-10
+
+⚠️ **Breaking changes** — saved workflows from v3.x will need preset re-selection because category structure and preset names have changed. See migration notes at the bottom of this entry.
+
+### Critical fixes
+- **Watermark issue resolved.** Removed all branded/named real-world references that were triggering Gemini 3 Pro Image's training-data recall behavior. Specifically removed: city names (Dubai, Emirates Hills, Palm Jumeirah, Al Barari), car brands (Mercedes-Benz, BMW, Bentley, Rolls-Royce, Maybach, Porsche, McLaren), camera brands (Hasselblad, Arri Alexa, Kodak Portra), publication names (Dwell, Architectural Digest), and photographer names (Iwan Baan, Hélène Binet, Julius Schulman, DBOX). All replaced with descriptive equivalents that produce the same visual style without triggering watermark reproduction.
+- **Motion blur prompt rewritten.** The previous `motion_blur_figures` preset was producing duplicate-figure failures (sharp character + transparent ghost overlay). The new prompt explicitly negates these failure modes: "do NOT produce double exposure, do NOT produce a sharp figure with a transparent copy next to it, do NOT produce ghostly transparent overlays" and describes the correct long-exposure photographic effect concretely.
+
+### Restructured: people category split into three independent axes
+The single `people` category bundled ethnicity, count, and styling. Now split into three composable axes:
+- **`people`** — ethnicity only (no count language). 11 ethnicity options.
+- **`population_density`** — how many people and where placed. 4 options: single_hero, hero_with_supporting, multiple_active, crowded_public.
+- **`hero_style`** — what the hero figure is wearing/doing. 6 options: elegant_woman_flowing_dress, elegant_man_tailored, contemplative_figure_from_behind, fashion_editorial_woman, couple_arrival_lifestyle, active_resident_lifestyle.
+
+This gives 11 × 4 × 6 = 264 combinations from 21 preset values, vs. ~17 hard-coded combinations before.
+
+### New: hero_style category with 6 archetypes
+Based on Schulman's Stahl House photography tradition and modern high-end residential render conventions:
+- `elegant_woman_flowing_dress` — light dress or abaya in motion (the iconic luxury-residential archetype)
+- `elegant_man_tailored` — tailored suit or thobe, contemplating space
+- `contemplative_figure_from_behind` — anonymous, atmospheric, lets viewer project in
+- `fashion_editorial_woman` — theatrical magazine-style with dress dramatically caught in motion
+- `couple_arrival_lifestyle` — couple walking together, residential aspirational
+- `active_resident_lifestyle` — candid lifestyle moment, less posed
+
+The `elegant_woman_flowing_dress` and `elegant_man_tailored` presets explicitly support both Western dress and Gulf traditional attire (abaya/thobe) when combined with appropriate ethnicity.
+
+### Renamed for clarity
+| v3.x | v4.0.0 |
+|---|---|
+| `preservation/strict_anchor` | `preservation/preserve_exactly` |
+| `preservation/standard_anchor` | `preservation/preserve_design` |
+| `preservation/refinement_allowed` | `preservation/preserve_with_polish` |
+| `preservation/restraint` | `preservation/restrained_realism` |
+| `preservation/no_clutter` | `preservation/clean_minimal` |
+| `preservation/competition_grade` | `preservation/competition_polished` |
+| `lighting/blue_hour_dubai` | `lighting/blue_hour_warm` |
+| `lighting/night_warm_glow` | `lighting/night_with_glow` |
+| `atmosphere/clear_pristine` | `atmosphere/clear_air` |
+| `atmosphere/warm_dust_gulf` | `atmosphere/warm_dust_haze` |
+| `atmosphere/humid_coastal` | `atmosphere/humid_coastal_air` |
+| `atmosphere/neutral_studio` | `atmosphere/neutral_clean` |
+| `style/film_portra` | `style/film_warm_grain` |
+| `style/hasselblad_clean` | `style/digital_clean` |
+| `style/cinematic_arri` | `style/cinematic_anamorphic` |
+| `style/magazine_dwell` | `style/magazine_residential` |
+| `style/competition_render` | `style/competition_dramatic` |
+| `style/watercolor_traditional` | `style/watercolor_painted` |
+| `style/loose_concept_sketch` | `style/concept_sketch_loose` |
+| `materials/travertine_signature` | `materials/travertine_full_palette` |
+| `materials/travertine_mashrabiya` | `materials/travertine_with_screens` |
+| `materials/premium_natural` | `materials/premium_natural_mix` |
+| `materials/industrial_refined` | `materials/industrial_concrete_steel` |
+| `materials/warm_residential` | `materials/warm_residential_oak` |
+| `materials/mediterranean_warm` | `materials/mediterranean_limestone` |
+| `materials/high_tech_precision` | `materials/precision_anodized_aluminum` |
+| `cars/hero_silver_mercedes` | `cars/hero_luxury_sedan_silver` |
+| `cars/hero_dark_luxury` | `cars/hero_luxury_sedan_dark` |
+| `cars/passing_motion_blur` | `cars/passing_blur` |
+| `cars/two_luxury_parked` | `cars/two_sedans_parked` |
+| `cars/supercar_hero` | `cars/hero_sports_coupe` |
+| `surroundings/dubai_residential_district` | `surroundings/gulf_residential_district` |
+| `surroundings/coastal_view` | `surroundings/coastal_distant_view` |
+| `people/few_*` (e.g. few_emirati) | `people/*` (e.g. emirati) — count moved to population_density |
+
+### Added
+- New `cars/hero_electric_modern` — modern electric luxury sedan archetype (without naming Tesla or other brands)
+- Deep skin/cloth/fabric photography vocabulary added to `enhance_people_full`. Includes: subsurface scattering, anisotropic specular highlights for hair, material-specific fabric terminology (linen slubs, silk satin sheen, cashmere fiber halo, denim diagonal twill, wool matte fiber), realistic skin chromatic variation, joint articulation accuracy.
+
+### Removed
+- All v3.x preset keys with branded references (Mercedes, Hasselblad, Arri, Portra, Dwell, Iwan Baan, etc.)
+- `few_*` ethnicity presets (split into ethnicity-only `people` + new `population_density`)
+
+### Migration from v3.x
+**Recommended path:**
+1. Close ComfyUI completely
+2. Delete `ComfyUI/user/archviz_presets.json` (back up first if you have customizations)
+3. Restart ComfyUI — first-run logic copies the new v4.0.0 defaults
+4. Open any saved workflows and re-select preset combinations in the (AV) Matrix node — v3.x preset keys won't be found, dropdowns will fall back to `(none)`
+
+If you had custom presets you added in v3.x, copy them from your backup file into the new `archviz_presets.json` after step 3.
+
+## [3.1.1] — 2026-05-10
+
+### Changed
+- People-enhancement presets reframed from anatomy-focused to holistic. Enhancing a person now means improving anatomy AND skin micro-texture AND hair detail AND clothing fabric AND posture together — because that's what produces a person who reads as natural rather than just a "fixed" person.
+- Renamed `fix_anatomy_full` → `enhance_people_full`. The new preset addresses faces (eyes, skin, expression), hair (strand detail, natural fall), skin (micro-texture, color variation), clothing (fabric weave, drape, material weight), posture (relaxed unposed body language), AND anatomy (correct hands, proportions, facial features) — all in one comprehensive pass.
+
+### Added
+- New `enhance_people_polish` preset: refines surface quality (skin, hair, clothing fabric) WITHOUT modifying anatomy or pose. Use this when the figures are already correctly posed and you just want them to look more detailed and natural.
+
+### Kept
+- `fix_hands_only` and `fix_faces_only` remain for surgical single-element fixes
+- `motion_blur_figures` remains as the pro architectural photography option that sidesteps anatomy entirely
+
 ## [3.1.0] — 2026-05-08
 
 ### Added

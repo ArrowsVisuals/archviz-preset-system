@@ -1,5 +1,5 @@
 """
-ArchViz Preset System v3.1 for ComfyUI
+ArchViz Preset System v4.0 for ComfyUI
 =====================================
 
 Self-contained ComfyUI custom node package for high-end architectural
@@ -40,6 +40,8 @@ MATRIX_CATEGORIES = [
     "style",
     "materials",
     "people",
+    "population_density",
+    "hero_style",
     "scale_life",
     "cars",
     "surroundings",
@@ -213,7 +215,7 @@ class ArchVizPresetMatrix:
         if enh and enh != "(none)":
             tag_parts.append(enh.replace("_", "")[:12])
         # Then add other distinctive selections
-        for cat in ("lighting", "style", "people", "cars"):
+        for cat in ("lighting", "hero_style", "style", "people", "cars"):
             value = selections.get(cat, "(none)")
             if value and value != "(none)":
                 tag_parts.append(value.replace("_", "")[:12])
@@ -267,5 +269,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
 
 WEB_DIRECTORY = None  # no JS extensions
 
-print(f"[ArchViz] v3.1 loaded — 3 nodes ((AV) Preset / Matrix / Assembler) — 11 categories")
+print(f"[ArchViz] v4.0.0 loaded — 3 nodes ((AV) Preset / Matrix / Assembler) — 13 categories")
 print(f"[ArchViz] Presets file: {USER_PRESETS_PATH}")

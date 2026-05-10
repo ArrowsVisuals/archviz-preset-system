@@ -44,8 +44,9 @@ jobs:
           with open('presets/default_presets.json') as f:
               data = json.load(f)
           required_categories = ['preservation', 'camera', 'lighting', 'atmosphere',
-                                 'style', 'materials', 'people', 'scale_life',
-                                 'cars', 'surroundings', 'enhancement']
+                                 'style', 'materials', 'people', 'population_density',
+                                 'hero_style', 'scale_life', 'cars', 'surroundings',
+                                 'enhancement']
           missing = [c for c in required_categories if c not in data]
           if missing:
               raise SystemExit(f'Missing required categories: {missing}')
@@ -55,7 +56,7 @@ jobs:
               if not isinstance(presets, dict) or not presets:
                   raise SystemExit(f'Category {cat} is empty or malformed')
               for name, text in presets.items():
-                  if not isinstance(text, str):
-                      raise SystemExit(f'{cat}/{name} has non-string text')
+                  if not isinstance(text, str) or not text.strip():
+                      raise SystemExit(f'{cat}/{name} has empty or non-string text')
           print('OK: preset structure valid')
           "

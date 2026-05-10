@@ -62,7 +62,7 @@ All grouped under the **ArchViz** category in the right-click menu.
 | `(AV) Matrix` | All 10 categories in one node — recommended default |
 | `(AV) Assembler` | Manual 6-fragment concatenator — flexibility |
 
-## The 10 categories
+## The 13 categories
 
 | Category | Purpose |
 |----------|---------|
@@ -74,11 +74,25 @@ All grouped under the **ArchViz** category in the right-click menu.
 | `materials` | Material palette including firm signatures |
 | `people` | Figure presence with ethnicity options |
 | `scale_life` | Activity level + occupancy |
-| `cars` | Hero vehicles for luxury residential |
+| `population_density` | How many people and where placed |
+| `hero_style` | The compositional anchor figure's style |
+| `cars` | Hero vehicles for luxury residential (brand-free) |
 | `surroundings` | Context preservation with refinement options |
 | `enhancement` | Upscale, refine, or fix specific elements |
 
 Pick `(none)` on any axis you don't want active. The Matrix node skips empty fragments.
+
+## The three-axis people system (v4.0+)
+
+Scene population is split across three independent axes that combine to produce 11 × 4 × 6 = 264 figure variations:
+
+**`people` (ethnicity, no count)** — emirati, saudi, qatari, omani, gulf_mixed, levantine_arab, european, afro_diaspora, east_asian, south_asian, mixed_diverse
+
+**`population_density` (count + placement)** — single_hero (one foreground figure), hero_with_supporting (foreground hero + few background), multiple_active (several figures, no central hero), crowded_public (many figures)
+
+**`hero_style` (what the hero is wearing/doing)** — elegant_woman_flowing_dress, elegant_man_tailored, contemplative_figure_from_behind, fashion_editorial_woman, couple_arrival_lifestyle, active_resident_lifestyle
+
+The hero archetypes are based on the photographic tradition of Julius Schulman's iconic luxury residential photography (Stahl House, etc.) and modern high-end residential render conventions. The `elegant_woman_flowing_dress` and `elegant_man_tailored` archetypes work with any ethnicity — Western dress for Western ethnicities, abaya/thobe for Gulf ethnicities.
 
 ## Enhancement workflows
 
@@ -86,7 +100,9 @@ The `enhancement` category covers a different mode of operation than the descrip
 
 - **Upscaling 1K → 4K:** Use `upscale_4k_full` and set most other categories to `(none)`. Set the Nano Banana resolution to 4K.
 - **Vegetation refinement:** Use `enhance_vegetation_strict` for fidelity, or `enhance_vegetation_creative` if you want richer planting.
-- **Fixing people:** Use `fix_anatomy_full` for comprehensive fixes, or `fix_hands_only` / `fix_faces_only` for surgical passes.
+- **Enhancing people holistically:** Use `enhance_people_full` — refines anatomy, skin micro-texture, hair detail, clothing fabric, and posture together. This is what makes people look genuinely natural rather than just "fixed."
+- **Polishing already-correct figures:** Use `enhance_people_polish` — refines skin/hair/clothing surface quality without modifying anatomy or pose.
+- **Surgical single-element fixes:** Use `fix_hands_only` or `fix_faces_only` when only one part is broken.
 - **Avoiding face/anatomy issues entirely:** Use `motion_blur_figures` — a professional architectural photography technique that turns rough figures into elegant motion-blurred ghosts.
 
 For enhancement runs, set most descriptive categories (lighting, atmosphere, style, etc.) to `(none)` so the prompt focuses on the refinement instruction. Stacking multiple enhancements in one pass can produce over-sharpened results — one clean pass beats three aggressive ones.
