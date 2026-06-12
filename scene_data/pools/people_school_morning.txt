@@ -1,0 +1,8 @@
+# School drop-off register. All scenes appropriate to a school environment.
+@guard: All people fully and modestly dressed; orderly, safe, supervised scene; no text on clothing or bags.
+FOREGROUND: Drop-off lane and shaded walkway. Children with colorful backpacks walking toward the entrance at CENTER-LEFT, a teacher greeting them near the doors.
+FOREGROUND: Drop-off lane and shaded walkway. A mother in an abaya walking her two children to the gate at the LEFT third, the smaller child holding her hand.
+FOREGROUND: Drop-off lane and shaded walkway. A small group of students chatting as they walk at the RIGHT third, backpacks on, a supervisor standing near the entrance.
+FOREGROUND: Drop-off lane and shaded walkway. A father in a kandura waving goodbye to his son at CENTER, the boy jogging toward the entrance with his backpack.
+FOREGROUND: Drop-off lane and shaded walkway. Two teachers walking together near the LEFT edge carrying folders, students visible farther along the walkway at the right.
+FOREGROUND: Drop-off lane and shaded walkway. Quiet mid-morning scene with one staff member walking at the FAR RIGHT, the walkway otherwise clear.

@@ -1,0 +1,8 @@
+# Interior life register — subtle occupancy for interior renders.
+@guard: No furniture, decor or objects added beyond what is named in this line; all people modestly dressed; no text anywhere.
+INTERIOR LIFE: a woman in modest casual wear standing at the window at the LEFT third looking out, morning light catching the curtain edge; a ceramic cup on the nearest modeled surface.
+INTERIOR LIFE: a man reading a hardcover book seated on the modeled seating at CENTER-RIGHT, relaxed posture; a folded throw draped naturally over the seat arm.
+INTERIOR LIFE: a child's small slippers by the doorway at the FAR LEFT and a parent walking through the space mid-frame with a gentle motion blur.
+INTERIOR LIFE: two friends in conversation near the modeled seating at the RIGHT third, one holding a small coffee cup; soft steam rising.
+INTERIOR LIFE: empty room - no people; a single open magazine and a ceramic cup resting on the nearest modeled surface, fresh and lived-in.
+INTERIOR LIFE: a cat curled asleep on the modeled seating at CENTER-LEFT; late light stretching across the floor; otherwise empty and serene.

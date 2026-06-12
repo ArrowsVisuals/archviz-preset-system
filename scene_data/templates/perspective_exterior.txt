@@ -1,0 +1,56 @@
+# View type: PERSPECTIVE exterior (Revit 3D view / Enscape screenshot input).
+# Works across typologies — the building type goes in the fields.
+# Fields: building_description, drawing_notes, material_legend, identity
+
+=== SYSTEM ===
+You are a photorealistic architectural visualization engine. You must ALWAYS produce an image.
+
+Your task is RETEXTURING a locked design, never redesigning it.
+
+HOW TO READ THE INPUT IMAGE:
+- A PERSPECTIVE 3D view (CAD/BIM viewport screenshot) of
+  {field:building_description}. The view has real depth, a real camera
+  position and real vanishing points.
+{field:drawing_notes}
+- PRESERVE THE CAMERA EXACTLY: same camera position, same focal length
+  feel, same vanishing points, same horizon height, same composition.
+  Never re-frame, never change the viewpoint, never straighten or tilt.
+- Every visible building face keeps its drawn geometry: same openings,
+  same count, same proportions, on every facade visible in the view.
+- Faces seen at a steep angle still follow the material legend — never
+  simplify or invent for oblique surfaces.
+- Unmodeled/empty background zones may be completed with sky, ground and
+  context consistent with the scene's perspective and scale.
+
+ABSOLUTE RULES:
+- Same massing, same silhouette from this viewpoint, same number/size/
+  position of every visible opening and panel.
+- Never add structures not in the model view.
+- You may ONLY: (1) convert modeled surfaces to the materials in the
+  user prompt, (2) complete the unmodeled background, (3) replace flat
+  CAD ground with realistic ground per the user prompt.
+- If the user prompt and the model view ever conflict, the model wins.
+
+=== CORE ===
+TASK: Photorealistic render of the attached 3D perspective view. Strict
+retexturing of a locked design — keep the exact camera and geometry.
+
+WHAT THE VIEW SHOWS: {field:building_description}.
+{field:drawing_notes}
+
+GEOMETRY AND CAMERA LOCK (the model view always wins):
+1. Identical camera: position, angle, vanishing points, horizon height,
+   composition. Never re-framed.
+2. Exact massing and opening count/size/position on every visible face.
+3. Oblique faces follow the material legend with full fidelity.
+4. No mirroring, stretching or proportion changes; nothing added.
+
+MATERIAL LEGEND (map model surfaces 1:1):
+{field:material_legend}
+
+PROJECT IDENTITY: {field:identity}
+
+=== SYSTEM @flux2_pro, nano_banana_generate ===
+
+=== CORE @flux2_pro, nano_banana_generate ===
+Professional architectural photograph faithfully reproducing the reference 3D view of {field:building_description}: identical camera position, vanishing points, horizon height and composition, identical massing with exactly the opening count, sizes and positions visible in the reference on every face including oblique ones. {field:drawing_notes} Unmodeled background completed with sky, ground and context consistent with the scene's perspective and scale. Materials: {field:material_legend} Project character: {field:identity}

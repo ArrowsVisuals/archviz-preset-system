@@ -204,8 +204,13 @@ class ArchVizPresetMatrix:
 
     @classmethod
     def INPUT_TYPES(cls):
-        required = {"target_model": (profile_names(),)}
-        required.update({cat: (_category_options(cat),) for cat in MATRIX_CATEGORIES})
+        # target_model is appended AFTER the categories so that saved v4
+        # workflows (whose widget values are positional) still map their 13
+        # category selections correctly. A v4 workflow's trailing separator
+        # value lands in target_model as an unknown profile, which safely
+        # falls back to byte-identical v4 output.
+        required = {cat: (_category_options(cat),) for cat in MATRIX_CATEGORIES}
+        required["target_model"] = (profile_names(),)
         return {
             "required": required,
             "optional": {
@@ -297,7 +302,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "ArchVizScene":           "(AV) Scene",
 }
 
-WEB_DIRECTORY = None  # no JS extensions
+WEB_DIRECTORY = "./web"
 
-print(f"[ArchViz] v5.1.0 loaded — 4 nodes, {len(profile_names())} target models, 13 categories + Scene projects")
+print(f"[ArchViz] v5.2.0 loaded — 4 nodes, {len(profile_names())} target models, 13 categories + Scene projects")
 print(f"[ArchViz] Presets file: {USER_PRESETS_PATH}")

@@ -51,3 +51,8 @@ to minimize perspective distortion, level horizon, slight upward
 gravitas appropriate to a tower hero shot.
 
 PROJECT IDENTITY: {field:identity}
+
+=== SYSTEM @flux2_pro, nano_banana_generate ===
+
+=== CORE @flux2_pro, nano_banana_generate ===
+Professional architectural photograph faithfully reproducing the reference elevation: one high-rise tower with exactly the floor count and curtain-wall rhythm shown in the reference — same panel grid, mullion spacing and balcony positions — the full tower in frame from ground to crown, straight-on view with a long telephoto minimizing perspective distortion, level horizon. {field:floors_note} {field:drawing_notes} Facade materials: {field:material_legend} Project character: {field:identity}

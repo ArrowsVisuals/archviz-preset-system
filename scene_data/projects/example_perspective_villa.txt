@@ -1,0 +1,27 @@
+# Example: Enscape/Revit 3D perspective view of a villa — the daily-driver
+# input type. Marketing and submission shots of the same view.
+template: perspective_exterior
+
+=== FIELDS ===
+building_description: a contemporary two-storey luxury villa seen from the street corner in three-quarter view
+
+=== FIELD drawing_notes ===
+- The cantilevered first-floor volume and the double-height entrance void
+  are deliberate design features: keep their exact depth and shadows.
+- The carport at the right of the view stays open as modeled.
+
+=== FIELD material_legend ===
+- Main volumes = warm white smooth stucco.
+- The accent volume and entrance surround = warm beige travertine,
+  vein-cut, large-format panels, honed matte.
+- Soffits of cantilevers = warm timber-look slat cladding.
+- Glazing as modeled with bronze-champagne aluminum frames.
+
+=== FIELD identity ===
+slim bronze railings and vertical louver accents, premium UAE residential
+marketing quality, clear sky, warm sun consistent from the south-west, no
+text or watermarks.
+
+=== SHOTS ===
+hero_marketing: people_gulf_family, cars_luxury, vegetation_lush_marketing
+review_neutral: people_submission_minimal, cars_neutral_modest, vegetation_minimal_submission

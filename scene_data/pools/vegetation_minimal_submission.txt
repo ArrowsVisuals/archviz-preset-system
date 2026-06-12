@@ -1,0 +1,7 @@
+# Minimal/accurate register — authority submissions, per landscape drawings.
+VEGETATION: young street trees at regular spacing along the frontage exactly as a typical landscape plan would place them; low groundcover strips at the facade base; no planting invented beyond this.
+VEGETATION: two young trees with tidy tree grates at the LEFT and RIGHT thirds of the sidewalk; simple low hedging along the plot edge; clear views of the full facade.
+VEGETATION: a single row of young date palms at even spacing along the street; plain lawn strip at the base; nothing behind the building except sky.
+VEGETATION: modest low shrub beds along the facade base only; one young tree near the LEFT edge; facade fully visible.
+VEGETATION: clean hardscape frontage with planter boxes containing low desert-adapted shrubs at regular intervals; no trees blocking the elevation.
+VEGETATION: no foreground planting - clear unobstructed view of the facade with simple lawn and sidewalk; sparse young trees far in the background only.

@@ -1,0 +1,8 @@
+# Private villa pool/amenity deck register.
+@guard: All figures fully and modestly dressed in casual daywear; no swimwear; strictly no outdoor furniture beyond what is named in this line; no extra walls, fences or structures; no cars.
+FOREGROUND: Private pool deck - a calm turquoise pool with light stone coping, manicured lawn beyond, layered planting along the boundary; a father and son sitting at the pool edge at CENTER-RIGHT dipping their feet, fully dressed in casual daywear; tall trees framing the LEFT edge.
+FOREGROUND: Private pool deck - still reflective pool, pale stone paving, lavender and feather grass along the wall; a woman in modest casual wear walking along the far side of the pool at the LEFT third carrying a watering can; soft canopy entering the top-right corner.
+FOREGROUND: Private pool deck - pool with gentle ripples, lawn panel at the right, two slim palms near the FAR RIGHT; two children playing with a small toy boat at the pool's near corner at CENTER-LEFT, an adult seated on the coping beside them; greenery rising behind.
+FOREGROUND: Private pool deck - quiet morning, mirror-still pool, dew on the lawn; a gardener gently skimming leaves from the water at the RIGHT third; bougainvillea along the boundary wall; trees framing BOTH top corners.
+FOREGROUND: Private pool deck - pool with stone stepping pads across one corner, white gravel border strips; a mother and daughter walking barefoot on the lawn at CENTER carrying lemonade glasses; frangipani tree at the LEFT third.
+FOREGROUND: Private pool deck - evening-fresh lawn and calm pool; a couple strolling along the deck edge at the FAR LEFT in modest casual wear; layered desert-adapted planting along the wall; a few birds in the sky.

@@ -58,3 +58,8 @@ CAMERA: flat, straight-on elevation view matching the drawing; one-point
 perspective, eye level, long telephoto (~135mm), level horizon.
 
 PROJECT IDENTITY: {field:identity}
+
+=== SYSTEM @flux2_pro, nano_banana_generate ===
+
+=== CORE @flux2_pro, nano_banana_generate ===
+Professional architectural photograph faithfully reproducing the reference elevation: one row of {field:storeys}-storey townhouses with exactly the unit count, window and balcony positions and proportions shown in the reference, the full row in frame edge to edge with sky above and ground below, flat straight-on one-point perspective at eye level with a long telephoto and a level horizon. {field:drawing_notes} Recesses between the building volumes read as open depth with sky and shadow behind them, never as walls. Facade materials: {field:material_legend} Project character: {field:identity}

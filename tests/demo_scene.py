@@ -43,9 +43,10 @@ print("[PASS] variations 0..215 cover all 216 combinations exactly once; seed sh
 sys_nb, prompt_nb, tag_nb, dbg_nb = build_scene("example_townhouses/front", 0, 42, "nano_banana_edit")
 sys_fx, prompt_fx, tag_fx, dbg_fx = build_scene("example_townhouses/front", 0, 42, "flux2_pro")
 assert sys_nb and "photorealistic architectural visualization engine" in sys_nb
-assert sys_fx == "" and "photorealistic architectural visualization engine" in prompt_fx
-assert "no @flux2_pro variant" not in dbg_fx or True  # warning permitted (no tagged variant authored yet)
-print("[PASS] nano_banana_edit -> separate system; flux2_pro -> system merged into prompt")
+assert sys_fx == "", "flux2_pro should have no separate system output"
+assert "faithfully reproducing the reference" in prompt_fx, "flux2_pro should use its generation-dialect template variant"
+assert "RETEXTURING a locked design" not in prompt_fx, "edit-dialect system must not leak into flux prompt"
+print("[PASS] nano_banana_edit -> separate edit system; flux2_pro -> dedicated generation-dialect variant, no edit leakage")
 
 # 4) guard clause auto-append on back/gardens
 _, prompt_back, tag_back, dbg_back = build_scene("example_townhouses/back", 3, 42, "nano_banana_edit")

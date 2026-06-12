@@ -1,0 +1,7 @@
+# Authority-submission register — minimal, sober, scale figures only.
+FOREGROUND: Clean paved frontage. A single adult pedestrian walking at the LEFT third, neutral clothing, natural posture.
+FOREGROUND: Clean paved frontage. Two adult pedestrians walking separately — one near CENTER-LEFT, one at the far right edge — neutral clothing.
+FOREGROUND: Clean paved frontage. One adult standing near the entrance at CENTER-RIGHT, neutral clothing, simply providing scale.
+FOREGROUND: Clean paved frontage. A man and a woman walking together at the RIGHT third, neutral business-casual clothing.
+FOREGROUND: Clean paved frontage. A single pedestrian at the FAR LEFT moving out of frame, neutral clothing.
+FOREGROUND: Clean paved frontage. Empty of people — clean unobstructed view of the full facade.

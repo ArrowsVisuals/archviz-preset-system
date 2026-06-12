@@ -1,0 +1,8 @@
+# Healthcare entrance register. Calm, caring, accessible.
+@guard: Calm and reassuring scene; no medical distress, no emergencies in view; no text on signage.
+FOREGROUND: Covered drop-off canopy and accessible entrance. A nurse in scrubs assisting an elderly woman from a car at the LEFT third, both calm and unhurried.
+FOREGROUND: Covered drop-off canopy and accessible entrance. A man pushing a relative in a wheelchair up the gentle ramp at CENTER-RIGHT, a staff member holding the door.
+FOREGROUND: Covered drop-off canopy and accessible entrance. A young family walking out of the entrance at the RIGHT third, the mother carrying a newborn, the father with a small gift balloon.
+FOREGROUND: Covered drop-off canopy and accessible entrance. Two staff members in scrubs walking together near the LEFT edge in conversation.
+FOREGROUND: Covered drop-off canopy and accessible entrance. A visitor with a bouquet of flowers walking toward the doors at CENTER-LEFT.
+FOREGROUND: Covered drop-off canopy and accessible entrance. Quiet scene with one receptionist visible through the glazing and a single visitor approaching at the FAR RIGHT.

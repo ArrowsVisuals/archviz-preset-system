@@ -5,6 +5,65 @@ All notable changes to the ArchViz Preset System are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.2.0] — 2026-06-12
+
+### Added
+- **One-click reset** — every (AV) node now has a "↺ Reset to defaults"
+  button restoring all widgets to their default/(none) state (frontend
+  extension, `web/archviz_reset.js`). Seed/variation auto-controls park on
+  "fixed".
+- **Final model variants for all exterior templates** — all 8 exterior
+  templates now ship generation-dialect SYSTEM/CORE variants tagged
+  `@flux2_pro, nano_banana_generate` (multi-model section tags are new:
+  comma-separate models in one header). Flux 2 and NB-generate now work
+  out of the box on every exterior scenario with zero fallback warnings.
+  `interior_room` and `renovation_photo` remain edit-model workflows by
+  design (the fallback warning tells you if you point them at Flux).
+- **Night render overhaul** — `blue_hour_warm` and `night_with_glow`
+  rewritten around professional twilight-photography anchors: balanced
+  exposure keeping facades legible, 2700–3000K windows with readable
+  interior depth (never blown white), cobalt-gradient skies (never flat
+  black), ground light pools, and a "every glow from a credible fixture"
+  rule. New: `dusk_first_lights`, `night_lit_minimal` (honest authority-
+  submission night), `night_event_festive`, and atmosphere
+  `night_air_crisp`.
+- `projects/example_perspective_villa.txt` — the daily-driver input type
+  (Enscape/Revit 3D view) with marketing + review shots.
+
+### Fixed
+- **v4 workflow compatibility bug (important)** — v5.0/5.1 placed
+  `target_model` as the Matrix's first widget, which shifted all 13
+  positional widget values when loading workflows saved with v4,
+  silently corrupting preset selections. `target_model` now appends
+  after the categories: v4 workflows load with correct selections and
+  byte-identical output.
+
+## [5.1.1] — 2026-06-12
+
+### Added — Studio content drop (in-house architecture team coverage)
+- **7 new templates** (10 total): `apartment_midrise`, `mosque`, `school`,
+  `commercial_retail` (typologies) and `perspective_exterior`,
+  `interior_room`, `renovation_photo` (view types — perspective views
+  preserve camera/vanishing points; renovation keeps the photographed
+  existing fabric pixel-faithful and adds only the described new work).
+  Mosque, school and retail templates ban readable text/signage
+  generation and enforce dignified, program-appropriate scenes.
+- **13 new pools** (17 total), organized by audience register and program:
+  people (gulf_family, professional, submission_minimal, school_morning,
+  mosque_courtyard, hospital_entrance), cars (family_realistic,
+  neutral_modest, institutional — buses, ambulance, service), vegetation
+  (lush_marketing, minimal_submission), gardens_pool_deck (modest-dress
+  guard), interior_life. Program-sensitive pools carry guard clauses.
+- **`projects/example_school.txt`** — demonstrates the audience pattern:
+  the same elevation as `front_marketing` and `front_submission` shots
+  differing only in pools.
+- **`STUDIO_GUIDE.md`** — deliverable → template/pool mapping, the
+  revision-reproducibility workflow, the option-study (scheme) pattern,
+  sheet-consistency rules (compass-based sun direction), and Gulf
+  cultural-correctness defaults.
+- `tests/validate_content.py` — every template instantiates, every pool
+  loads, every example shot builds under every model profile.
+
 ## [5.1.0] — 2026-06-12
 
 ### Added — (AV) Scene: locked-project batch rendering

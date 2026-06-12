@@ -115,11 +115,12 @@ def _parse_sections(text: str) -> tuple:
 
 
 def _split_model_tag(name: str) -> tuple:
-    """'CORE @flux2_pro' -> ('CORE', 'flux2_pro');  'CORE' -> ('CORE', None)"""
+    """'CORE @a, b' -> ('CORE', ['a', 'b']);  'CORE' -> ('CORE', [None])"""
     if "@" in name:
         base, _, tag = name.partition("@")
-        return base.strip(), tag.strip()
-    return name.strip(), None
+        tags = [t.strip() for t in tag.split(",") if t.strip()]
+        return base.strip(), tags or [None]
+    return name.strip(), [None]
 
 
 # ---------------------------------------------------------------------------
@@ -153,8 +154,9 @@ def _load_template(name: str) -> dict:
     _, sections = _parse_sections(paths[name].read_text(encoding="utf-8"))
     out = {}
     for header, body in sections:
-        base, tag = _split_model_tag(header)
-        out[(base.upper(), tag)] = body
+        base, tags = _split_model_tag(header)
+        for tag in tags:
+            out[(base.upper(), tag)] = body
     return out
 
 
@@ -182,36 +184,36 @@ def _load_project(name: str) -> dict:
             proj["template"] = line.split(":", 1)[1].strip()
 
     for header, body in sections:
-        base, tag = _split_model_tag(header)
+        base, tags = _split_model_tag(header)
         parts = base.split()
         kind = parts[0].upper()
-
-        if kind == "FIELDS":
-            for fl in body.splitlines():
-                if ":" in fl:
-                    k, _, v = fl.partition(":")
-                    proj["fields"][(k.strip(), tag)] = v.strip()
-        elif kind == "FIELD" and len(parts) >= 2:
-            proj["fields"][(parts[1], tag)] = body
-        elif kind == "SHOTS":
-            for sl in body.splitlines():
-                if ":" in sl:
-                    shot, _, pools = sl.partition(":")
-                    proj["shots"][shot.strip()] = [
-                        p.strip() for p in pools.split(",") if p.strip()
-                    ]
-        elif kind == "POOL" and len(parts) >= 2:
-            pool_name = parts[1]
-            lines = [
-                l.strip() for l in body.splitlines()
-                if l.strip() and not l.strip().startswith("#")
-            ]
-            if "extends" in (p.lower() for p in parts[2:]):
-                proj["pool_extends"][pool_name] = lines
-            else:
-                proj["pool_replace"][pool_name] = lines
-        elif kind in ("SYSTEM", "CORE"):
-            proj["sections"][(kind, tag)] = body
+        for tag in tags:
+            if kind == "FIELDS":
+                for fl in body.splitlines():
+                    if ":" in fl:
+                        k, _, v = fl.partition(":")
+                        proj["fields"][(k.strip(), tag)] = v.strip()
+            elif kind == "FIELD" and len(parts) >= 2:
+                proj["fields"][(parts[1], tag)] = body
+            elif kind == "SHOTS":
+                for sl in body.splitlines():
+                    if ":" in sl:
+                        shot, _, pools = sl.partition(":")
+                        proj["shots"][shot.strip()] = [
+                            p.strip() for p in pools.split(",") if p.strip()
+                        ]
+            elif kind == "POOL" and len(parts) >= 2:
+                pool_name = parts[1]
+                lines = [
+                    l.strip() for l in body.splitlines()
+                    if l.strip() and not l.strip().startswith("#")
+                ]
+                if "extends" in (p.lower() for p in parts[2:]):
+                    proj["pool_extends"][pool_name] = lines
+                else:
+                    proj["pool_replace"][pool_name] = lines
+            elif kind in ("SYSTEM", "CORE"):
+                proj["sections"][(kind, tag)] = body
 
     if not proj["template"]:
         raise ValueError(

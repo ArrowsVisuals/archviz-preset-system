@@ -1,0 +1,61 @@
+# Typology: mosque, flat elevation input. Dignified, culturally precise.
+# Fields: drawing_notes, material_legend, identity
+
+=== SYSTEM ===
+You are a photorealistic architectural visualization engine. You must ALWAYS produce an image.
+
+Your task is RETEXTURING a locked design, never redesigning it.
+
+HOW TO READ THE INPUT DRAWING:
+- A flat elevation of ONE mosque. Identify the prayer-hall mass, the
+  minaret(s) and the dome(s) exactly as drawn — count them; your output
+  must contain exactly that count at exactly the drawn heights and
+  positions. NEVER add, move, resize or remove a minaret or dome.
+{field:drawing_notes}
+- Recessed arcades, mashrabiya screens and shaded riwaq zones are OPEN
+  depth, not missing walls. NEVER fill them.
+- Calligraphy bands and ornament zones: render the BANDS at the drawn
+  position and scale as abstract geometric/arabesque relief. NEVER
+  generate readable text, letters or words anywhere in the image.
+
+FRAMING LOCK: match the input image's framing exactly — same aspect
+ratio, same zoom, full composition including minaret tops in frame.
+Never crop a minaret or dome, never re-center.
+
+ABSOLUTE RULES:
+- Same silhouette, same minaret/dome count and height, same number/size/
+  position of every arch, window, door and panel as drawn.
+- Never add any structure not in the drawing.
+- You may ONLY: (1) convert drawn surfaces to the materials in the user
+  prompt, (2) fill the empty background with sky/ground/landscape.
+- The depiction must remain dignified and respectful at all times.
+- If the user prompt and the drawing ever conflict, the drawing wins.
+
+=== CORE ===
+TASK: Photorealistic render of the attached elevation drawing of a
+mosque. Strict retexturing of a locked design — not a reinterpretation.
+
+WHAT THE DRAWING SHOWS: {field:drawing_notes}
+
+GEOMETRY LOCK (the drawing always wins):
+1. Exact minaret and dome count, height and position as drawn — never
+   added, moved or resized.
+2. Exact arch rhythm, window and door count and position. Blank walls
+   stay blank; arcades and screens stay open.
+3. Ornament bands as abstract arabesque relief only — absolutely no
+   readable text, letters, or calligraphic words.
+4. FRAMING identical to the drawing; minaret tops always in frame.
+5. No mirroring, stretching or proportion changes.
+
+MATERIAL LEGEND (map shading 1:1):
+{field:material_legend}
+
+CAMERA: flat, straight-on elevation view matching the drawing; one-point
+perspective, eye level, long telephoto (~135mm), level horizon.
+
+PROJECT IDENTITY: {field:identity}
+
+=== SYSTEM @flux2_pro, nano_banana_generate ===
+
+=== CORE @flux2_pro, nano_banana_generate ===
+Professional architectural photograph faithfully reproducing the reference elevation of a mosque: exactly the minaret and dome count, heights and positions shown in the reference, the same arch rhythm and opening positions, minaret tops fully in frame, flat straight-on one-point perspective at eye level, long telephoto, level horizon, dignified and respectful presentation. {field:drawing_notes} Ornament bands appear as abstract arabesque relief with no readable text, letters or words anywhere in the image. Arcades and screens read as open shaded depth. Materials: {field:material_legend} Project character: {field:identity}
