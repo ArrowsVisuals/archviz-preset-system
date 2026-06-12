@@ -37,12 +37,17 @@ for shot in list_shots():
         assert "WARNINGS" not in dbg or "no @" in dbg, f"{shot} @ {model}: {dbg}"
 print(f"[PASS] all {len(list_shots())} shots build under all {len(profile_names())} model profiles")
 
-# 4) generation-dialect variants engage for flux2_pro (no fallback warning)
+# 4) generation-dialect variants engage for flux2_pro on every exterior shot;
+#    interior_room / renovation_photo are edit-only by design (warning expected)
+EDIT_ONLY = ("interior_living", "renovation_extension")
 for shot in list_shots():
     s_, p_, t_, dbg = build_scene(shot, 0, 42, "flux2_pro")
-    assert "no @flux2_pro variant" not in dbg, f"{shot}: flux variant missing"
-    assert "faithfully reproducing the reference" in p_, f"{shot}: flux variant not used"
-print("[PASS] @flux2_pro template variants engage on every example shot (no fallbacks)")
+    if shot.startswith(EDIT_ONLY):
+        assert "no @flux2_pro variant" in dbg, f"{shot}: expected edit-only warning"
+    else:
+        assert "no @flux2_pro variant" not in dbg, f"{shot}: flux variant missing"
+        assert "faithfully reproducing the reference" in p_, f"{shot}: flux variant not used"
+print("[PASS] flux2_pro variants engage on all exterior shots; edit-only templates warn as designed")
 
 # 5) Matrix widget order: 13 categories first, target_model AFTER (v4 compat)
 mt = av.ArchVizPresetMatrix.INPUT_TYPES()

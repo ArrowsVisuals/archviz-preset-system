@@ -1,0 +1,16 @@
+# Duplicate this file & edit the fields for your project.
+# Edit-model workflow (Nano Banana / GPT Image): retextures a modeled room.
+template: interior_room
+=== FIELDS ===
+room_description: an open-plan living room with full-height windows and modeled seating
+=== FIELD drawing_notes ===
+- Built-in joinery and the modeled furniture layout stay exactly as placed.
+=== FIELD material_legend ===
+- Floors = wide-plank warm oak. Walls = warm off-white lime-wash finish.
+- Feature wall = honed travertine slabs. Joinery = walnut with bronze pulls.
+- Sofa = heavy natural linen, warm sand tone. Curtains = sheer white linen.
+=== FIELD identity ===
+quiet luxury residential interior, soft natural daylight, editorial
+calm, no text anywhere. Professional architectural photography: full-frame camera look, tilt-shift-corrected verticals, crisp physically-accurate materials and shadows, natural color grading, never oversaturated, never painterly, no HDR halos.
+=== SHOTS ===
+living_daylight: interior_life

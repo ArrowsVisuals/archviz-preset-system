@@ -1,4 +1,5 @@
 # Realistic family cars — mainstream residential, honest middle register.
+@guard: All vehicles are current latest-generation models in immaculate showroom-clean condition - never old, dated, worn, dusty or damaged. Parked vehicles are perfectly sharp with crisp paint reflections - never motion-blurred.
 PARKED CARS: a white Toyota Land Cruiser, a silver Nissan Patrol and a grey Hyundai Tucson along the street - current models, clean daily-driver condition.
 PARKED CARS: a pearl-white Toyota Camry, a dark grey Kia Telluride and a white Mitsubishi Pajero - one in a carport, two on the street.
 PARKED CARS: a silver Honda CR-V, a white Nissan Patrol and a beige Toyota Corolla - current models, varied orientation, one nose-in.

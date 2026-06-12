@@ -19,11 +19,11 @@ from avps_pkg.scene import build_scene, list_shots, _load_project, _files, _load
 
 shots = list_shots()
 print("shots discovered:", shots)
-assert "example_townhouses/front" in shots and "example_townhouses/back" in shots
+assert "townhouses/front_marketing" in shots and "townhouses/back_garden" in shots
 
 # 1) determinism
-a = build_scene("example_townhouses/front", 7, 42, "nano_banana_edit")
-b = build_scene("example_townhouses/front", 7, 42, "nano_banana_edit")
+a = build_scene("townhouses/front_marketing", 7, 42, "nano_banana_edit")
+b = build_scene("townhouses/front_marketing", 7, 42, "nano_banana_edit")
 assert a == b, "determinism failed"
 print("[PASS] deterministic: same inputs -> identical (system, prompt, tag, debug)")
 
@@ -40,8 +40,8 @@ assert order_a != order_b
 print("[PASS] variations 0..215 cover all 216 combinations exactly once; seed shuffles order")
 
 # 3) model awareness
-sys_nb, prompt_nb, tag_nb, dbg_nb = build_scene("example_townhouses/front", 0, 42, "nano_banana_edit")
-sys_fx, prompt_fx, tag_fx, dbg_fx = build_scene("example_townhouses/front", 0, 42, "flux2_pro")
+sys_nb, prompt_nb, tag_nb, dbg_nb = build_scene("townhouses/front_marketing", 0, 42, "nano_banana_edit")
+sys_fx, prompt_fx, tag_fx, dbg_fx = build_scene("townhouses/front_marketing", 0, 42, "flux2_pro")
 assert sys_nb and "photorealistic architectural visualization engine" in sys_nb
 assert sys_fx == "", "flux2_pro should have no separate system output"
 assert "faithfully reproducing the reference" in prompt_fx, "flux2_pro should use its generation-dialect template variant"
@@ -49,7 +49,7 @@ assert "RETEXTURING a locked design" not in prompt_fx, "edit-dialect system must
 print("[PASS] nano_banana_edit -> separate edit system; flux2_pro -> dedicated generation-dialect variant, no edit leakage")
 
 # 4) guard clause auto-append on back/gardens
-_, prompt_back, tag_back, dbg_back = build_scene("example_townhouses/back", 3, 42, "nano_banana_edit")
+_, prompt_back, tag_back, dbg_back = build_scene("townhouses/back_garden", 3, 42, "nano_banana_edit")
 assert "Strictly no outdoor furniture" in prompt_back
 assert "PARKED CARS" not in prompt_back  # back shot has no car pool
 print("[PASS] guard clause appended to garden line; back shot uses only its own pool")

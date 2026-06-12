@@ -1,0 +1,10 @@
+# OPTIONAL marketing-only pool: one moving vehicle for long-exposure life.
+# Never combine with submission shots. Parked-car pools stay sharp; this
+# pool adds exactly one deliberately moving vehicle.
+@guard: Exactly one moving vehicle with subtle, realistic long-exposure motion blur - the blur is restrained and photographic, never a smear; everything else in the frame stays perfectly sharp.
+PASSING TRAFFIC: a single dark luxury sedan driving past in the near lane at the LEFT third, subtle motion blur on the body, sharp surroundings.
+PASSING TRAFFIC: a white SUV mid-frame moving right with gentle motion blur, headlights off in daylight.
+PASSING TRAFFIC: a silver sports car passing at the FAR RIGHT, slight motion blur trailing, composition otherwise still.
+PASSING TRAFFIC: at dusk, one car passing with elegant warm light trails low across the bottom third of the frame, long-exposure style.
+PASSING TRAFFIC: a delivery-free quiet street with a single dark sedan approaching in soft blur at the LEFT edge.
+PASSING TRAFFIC: no moving vehicles - completely still street, every element sharp.

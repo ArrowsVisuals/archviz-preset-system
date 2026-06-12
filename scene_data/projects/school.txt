@@ -1,4 +1,4 @@
-# Example: school project demonstrating the AUDIENCE pattern —
+# School project demonstrating the AUDIENCE pattern —
 # the same elevation rendered for marketing vs. authority submission,
 # as two shots of one project differing only in pools.
 template: school
@@ -22,8 +22,7 @@ storeys: TWO
 === FIELD identity ===
 cheerful but disciplined educational architecture, clear blue sky,
 mid-morning sun from upper left, clean and well-maintained, no text or
-signage lettering anywhere.
-
+signage lettering anywhere. Professional architectural photography: full-frame camera look, tilt-shift-corrected verticals, crisp physically-accurate materials and shadows, natural color grading, never oversaturated, never painterly, no HDR halos.
 === SHOTS ===
 front_marketing: people_school_morning, cars_institutional, vegetation_lush_marketing
 front_submission: people_submission_minimal, cars_neutral_modest, vegetation_minimal_submission

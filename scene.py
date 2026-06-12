@@ -67,10 +67,33 @@ _REF_RE = re.compile(r"\{(field|preset|pool):([^}]+)\}")
 # ---------------------------------------------------------------------------
 # First-run setup
 # ---------------------------------------------------------------------------
+# Files shipped by pre-release 5.2.x builds under old names. They were
+# bundled content (not user-authored), so removing stale user-dir copies
+# is safe and prevents duplicate entries in the shot dropdown.
+_LEGACY_BUNDLED = [
+    "projects/example_townhouses.txt",
+    "projects/example_school.txt",
+    "projects/example_perspective_villa.txt",
+] + [f"projects/starter_{n}.txt" for n in (
+    "villa", "townhouses", "tower", "apartments", "school",
+    "mosque", "retail", "perspective", "interior", "renovation",
+)]
+
+
 def _ensure_user_scenes():
-    """Copy bundled scene_data tree to user dir on first run. Never overwrites."""
+    """Copy bundled scene_data tree to user dir on first run, and remove
+    stale copies of renamed bundled files from earlier 5.2.x builds."""
     import shutil
     if USER_SCENES.exists():
+        removed = 0
+        for rel in _LEGACY_BUNDLED:
+            stale = USER_SCENES / rel
+            if stale.exists():
+                stale.unlink()
+                removed += 1
+        if removed:
+            print(f"[ArchViz] Removed {removed} legacy bundled file(s) "
+                  f"from {USER_SCENES} (renamed in 5.2.2)")
         return
     if not BUNDLED_SCENES.exists():
         return
@@ -225,15 +248,26 @@ def _load_project(name: str) -> dict:
 # ---------------------------------------------------------------------------
 # Model-aware section / field selection
 # ---------------------------------------------------------------------------
-def _pick(d: dict, key: str, model: str, warnings: list, what: str) -> str:
-    """Model-tagged value wins; fall back to untagged with a warning."""
+DEFAULT_DIALECT = "nano_banana_edit"
+
+
+def _pick(d: dict, key: str, model: str, warnings: list, what: str,
+          warn_on_fallback: bool = False) -> str:
+    """Model-tagged value wins; fall back to untagged.
+
+    warn_on_fallback: sections (SYSTEM/CORE) warn whenever a non-default
+    dialect falls back to default text — whether or not other model
+    variants exist — because edit-dialect geometry language silently fed
+    to a generation model is exactly the failure v5 exists to prevent.
+    Fields never warn (untagged fields are the norm).
+    """
     if (key, model) in d:
         return d[(key, model)]
     if (key, None) in d:
-        if model and any(k == key and t for (k, t) in d):
-            # tagged variants exist for other models but not this one
+        if warn_on_fallback and model and model != DEFAULT_DIALECT:
             warnings.append(
-                f"{what} '{key}' has no @{model} variant — using default dialect"
+                f"{what} '{key}' has no @{model} variant — using default "
+                f"(edit-dialect) text"
             )
         return d[(key, None)]
     return ""
@@ -349,8 +383,10 @@ def build_scene(shot_ref: str, variation: int, seed: int, model: str,
     # Sections: project override beats template; model tag beats untagged.
     sections = dict(tmpl)
     sections.update(proj["sections"])
-    system_raw = _pick(sections, "SYSTEM", model, warnings, "section")
-    core_raw = _pick(sections, "CORE", model, warnings, "section")
+    system_raw = _pick(sections, "SYSTEM", model, warnings, "section",
+                       warn_on_fallback=True)
+    core_raw = _pick(sections, "CORE", model, warnings, "section",
+                     warn_on_fallback=True)
 
     system_txt = _resolve_refs(system_raw, proj["fields"], model, warnings, trace)
     core_txt = _resolve_refs(core_raw, proj["fields"], model, warnings, trace)
@@ -451,12 +487,16 @@ class ArchVizScene:
         }
 
     RETURN_TYPES = ("STRING", "STRING", "STRING", "STRING")
-    RETURN_NAMES = ("system_prompt", "prompt", "filename_tag", "debug")
+    RETURN_NAMES = ("prompt", "system_prompt", "filename_tag", "debug")
     FUNCTION = "build"
     CATEGORY = "ArchViz"
 
     def build(self, shot, variation, seed, target_model, style_override=""):
-        return build_scene(shot, variation, seed, target_model, style_override)
+        # Output order mirrors the Nano Banana / Gemini node's input order
+        # (prompt above system_prompt) so connections run parallel.
+        system_prompt, prompt, tag, debug = build_scene(
+            shot, variation, seed, target_model, style_override)
+        return (prompt, system_prompt, tag, debug)
 
 
 _ensure_user_scenes()

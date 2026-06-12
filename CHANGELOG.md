@@ -5,6 +5,88 @@ All notable changes to the ArchViz Preset System are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.2.7] — 2026-06-12
+
+### Changed
+- **`overcast_dramatic` and `dramatic_clouds` rewritten** — both presets
+  previously requested visible light shafts, which models rendered as
+  god-rays aimed at the camera instead of dramatic light on the subject.
+  The drama now lands on the building: directional sun from a cloud
+  break behind the camera raking across the facade, architecture lit
+  bright against a darker storm sky, with an explicit ban on visible
+  shafts, god rays and beams. The sky frames the subject; it never
+  competes with it.
+
+## [5.2.6] — 2026-06-12
+
+### Changed
+- **Motion-blur discipline** — the car-pool guard now explicitly keeps
+  parked vehicles perfectly sharp (never motion-blurred). New optional
+  `traffic_motion` pool for marketing shots that want exactly one
+  deliberately moving vehicle with restrained long-exposure blur
+  (including a dusk light-trails line); includes a "completely still"
+  option.
+
+## [5.2.5] — 2026-06-12
+
+### Fixed
+- **Automatic cleanup of legacy bundled files** — earlier 5.2.x builds
+  copied projects under old example_/starter_ names into the user
+  directory; because user files merge with bundled ones, the old names
+  appeared alongside the new clean names in the shot dropdown. The
+  loader now removes those specific stale bundled copies on startup
+  (user-authored project files are never touched).
+
+## [5.2.4] — 2026-06-12
+
+### Changed
+- **(AV) Scene output order**: `prompt` is now the first output and
+  `system_prompt` the second, mirroring the input order of the Nano
+  Banana / Gemini image node so connections run parallel without
+  crossing. If you saved a workflow with an earlier 5.2.x build,
+  re-connect the Scene node's two top outputs once.
+
+## [5.2.3] — 2026-06-12
+
+### Changed — render quality pass
+- **All car pools now carry a hard guard**: every line enforces
+  current latest-generation, showroom-clean vehicles — never old, dated,
+  worn, dusty or damaged.
+- **vegetation_lush_marketing rewritten for studio restraint** — one
+  dominant element plus one supporting layer per line, defined planting
+  beds, negative space; eliminated the palm-overload / petal-kitsch
+  register that read as amateur work.
+- **Professional photography anchors added to every bundled project
+  identity**: full-frame look, tilt-shift-corrected verticals, physically
+  accurate materials and shadows, natural grading, never painterly or
+  oversaturated.
+
+## [5.2.2] — 2026-06-12
+
+### Changed
+- **Clean professional naming for all bundled projects** — no more
+  example_/starter_ prefixes. One project per template, named by
+  typology: `villa`, `townhouses`, `tower`, `apartments`, `school`,
+  `mosque`, `retail`, `perspective_villa`, `interior_living`,
+  `renovation_extension`. Duplicate projects consolidated. Shot names
+  are audience-explicit throughout (front_marketing, front_submission,
+  back_garden, approach, morning_marketing, ...).
+- **Migration note**: if you ran an earlier 5.x build, delete
+  `ComfyUI/user/archviz_scenes/projects/example_*.txt` (and any
+  `starter_*.txt`) once, or the old names will appear alongside the new
+  ones in the shot dropdown. Your own project files are unaffected.
+
+## [5.2.1] — 2026-06-12
+
+### Added
+- **Starter projects for every template** — 10 ready-to-duplicate project
+  files (`projects/starter_*.txt`) covering all typologies and view types
+  with scenario-appropriate shots: villa now has distinct
+  front_marketing / front_submission / back_garden / back_pool logic;
+  school, mosque, retail, tower, apartments, perspective, interior and
+  renovation each ship their correct audience shots and pool registers.
+  The Scene shot dropdown now lists ~25 ready scenarios out of the box.
+
 ## [5.2.0] — 2026-06-12
 
 ### Added

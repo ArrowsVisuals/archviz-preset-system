@@ -1,4 +1,4 @@
-# Example: Enscape/Revit 3D perspective view of a villa — the daily-driver
+# Enscape/Revit 3D perspective view of a villa — the daily-driver
 # input type. Marketing and submission shots of the same view.
 template: perspective_exterior
 
@@ -20,8 +20,7 @@ building_description: a contemporary two-storey luxury villa seen from the stree
 === FIELD identity ===
 slim bronze railings and vertical louver accents, premium UAE residential
 marketing quality, clear sky, warm sun consistent from the south-west, no
-text or watermarks.
-
+text or watermarks. Professional architectural photography: full-frame camera look, tilt-shift-corrected verticals, crisp physically-accurate materials and shadows, natural color grading, never oversaturated, never painterly, no HDR halos.
 === SHOTS ===
 hero_marketing: people_gulf_family, cars_luxury, vegetation_lush_marketing
 review_neutral: people_submission_minimal, cars_neutral_modest, vegetation_minimal_submission

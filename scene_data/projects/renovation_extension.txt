@@ -1,0 +1,18 @@
+# Duplicate this file & edit the fields for your project.
+# Edit-model workflow: input is a PHOTO of the existing building.
+template: renovation_photo
+=== FIELDS ===
+existing_description: a two-storey building photographed from the street, to remain exactly as photographed
+=== FIELD new_work_description ===
+a single-storey side extension with a flat roof, full-height glazing and
+warm stone cladding, attached at the building's side elevation exactly
+where described
+=== FIELD material_legend ===
+- Extension walls = warm beige natural stone, large-format, honed.
+- Extension glazing = full-height clear glass with slim bronze frames.
+- Extension roof edge = slim dark bronze fascia.
+=== FIELD identity ===
+seamless photographic integration, matching the photo's light and grain
+exactly, no other changes anywhere in the frame. Professional architectural photography: full-frame camera look, tilt-shift-corrected verticals, crisp physically-accurate materials and shadows, natural color grading, never oversaturated, never painterly, no HDR halos.
+=== SHOTS ===
+proposal: people_submission_minimal

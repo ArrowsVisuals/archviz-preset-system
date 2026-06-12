@@ -1,7 +1,7 @@
 [project]
 name = "archviz-preset-system"
 description = "Model-aware preset library for high-end architectural visualization. One preset stack, compiled to the native dialect of Nano Banana, Flux 2, GPT Image 2, or Ideogram 4. Three nodes: (AV) Preset, (AV) Matrix, (AV) Assembler."
-version = "5.2.0"
+version = "5.2.7"
 license = { text = "MIT" }
 dependencies = []
 classifiers = [

@@ -1,7 +1,8 @@
-# Lush marketing register — developer brochures, hero shots.
-VEGETATION: mature trees framing BOTH top corners with dense canopies; layered tropical planting at the facade base; a row of tall royal palms rising behind the roofline; flowering bougainvillea cascading near the entrance.
-VEGETATION: one grand mature tree dominating the LEFT edge with branches across the top-left quarter; lush layered beds of bird-of-paradise and ornamental grasses along the full frontage; dense green backdrop behind the building.
-VEGETATION: tall date palms framing the RIGHT edge; rich underplanting of frangipani, lavender and feather grass along the base; a soft green canopy line behind the roofline; petals drifting in the foreground.
-VEGETATION: an allée of slim palms receding along the street at the LEFT; abundant flowering shrubs in pink and white at the facade base; mature shade trees behind the building.
-VEGETATION: soft out-of-focus foliage entering BOTH top corners; generous layered planting beds with sage, salvia and white roses along the frontage; dense palms and shade trees rising behind.
-VEGETATION: a flowering jacaranda at the RIGHT edge casting dappled shade; layered Mediterranean planting along the base; full green backdrop with date palms behind the roofline.
+# Rich but RESTRAINED marketing register - editorial landscape design,
+# never postcard clutter. One dominant element + one supporting layer max.
+VEGETATION: one mature shade tree framing the LEFT edge only, its canopy entering the top-left corner; a single clean layer of clipped low hedging and feather grass along the facade base; nothing behind the roofline except sky.
+VEGETATION: a disciplined row of three slim date palms at even spacing on the RIGHT side; low sculptural desert planting in defined beds along the frontage; clear sky behind.
+VEGETATION: one specimen olive tree with a sculptural trunk near the entrance at CENTER-LEFT; a restrained band of lavender and white flowering groundcover along the base; soft green hedge line behind the building, low and tidy.
+VEGETATION: mature trees framing BOTH top corners with airy, open canopies; a single continuous clipped hedge along the plot edge; clean lawn panel in the foreground; sky fully visible above the roofline.
+VEGETATION: one flowering frangipani at the RIGHT third as the only accent; structured rows of low ornamental grasses along the facade; a faint suggestion of greenery far behind, out of focus.
+VEGETATION: minimalist landscape design - two sculptural ghaf trees asymmetrically placed at the LEFT edge and CENTER-RIGHT, gravel-edged planting beds with three species maximum, generous negative space.

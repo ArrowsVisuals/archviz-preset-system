@@ -304,5 +304,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
 
 WEB_DIRECTORY = "./web"
 
-print(f"[ArchViz] v5.2.0 loaded — 4 nodes, {len(profile_names())} target models, 13 categories + Scene projects")
+print(f"[ArchViz] v5.2.7 loaded — 4 nodes, {len(profile_names())} target models, 13 categories + Scene projects")
 print(f"[ArchViz] Presets file: {USER_PRESETS_PATH}")

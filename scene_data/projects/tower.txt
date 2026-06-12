@@ -1,0 +1,16 @@
+# Duplicate this file & edit the fields for your project.
+template: tower
+=== FIELDS ===
+floors_note: Count the floor lines in the drawing and reproduce exactly that count.
+=== FIELD drawing_notes ===
+- The podium levels and crown detail stay exactly as drawn.
+=== FIELD material_legend ===
+- Curtain wall = high-performance glazing with subtle blue-grey tint and
+  slim champagne-bronze mullions exactly on the drawn grid.
+- Solid spandrels and cores = warm light stone-look panels.
+=== FIELD identity ===
+premium commercial tower marketing quality, crisp reflections, warm sun
+consistent from the south-west, no text or logos. Professional architectural photography: full-frame camera look, tilt-shift-corrected verticals, crisp physically-accurate materials and shadows, natural color grading, never oversaturated, never painterly, no HDR halos.
+=== SHOTS ===
+hero_marketing: people_professional, cars_luxury, vegetation_lush_marketing
+submission: people_submission_minimal, cars_neutral_modest, vegetation_minimal_submission

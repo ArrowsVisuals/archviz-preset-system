@@ -23,7 +23,7 @@ How to map real deliverables to templates, pools and workflow patterns.
 
 ## The audience pattern
 Render the SAME elevation for different audiences as different SHOTS of
-one project (see projects/example_school.txt):
+one project (see projects/school.txt):
 ```
 front_marketing:  people_school_morning, cars_institutional, vegetation_lush_marketing
 front_submission: people_submission_minimal, cars_neutral_modest, vegetation_minimal_submission
