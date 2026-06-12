@@ -1,0 +1,7 @@
+# Street-front people & foreground. One line = one option. Positions explicit.
+FOREGROUND: Asphalt road with light concrete sidewalk. A female jogger in athletic wear running on the LEFT side of the frame, mid-stride, slight motion blur.
+FOREGROUND: Asphalt road with light concrete sidewalk. A male jogger running on the FAR RIGHT of the frame moving out of view, plus a woman walking a small dog on the sidewalk near center-left.
+FOREGROUND: Asphalt road with light concrete sidewalk. NO jogger - a young couple strolling on the sidewalk at the right third, and a cyclist riding past on the left side of the road with slight motion blur.
+FOREGROUND: Asphalt road with light concrete sidewalk. A man walking with a coffee cup on the sidewalk at the left third, and a child on a kick scooter near the right edge.
+FOREGROUND: Asphalt road with light concrete sidewalk. Two friends jogging side by side on the RIGHT side of the road, mid-conversation.
+FOREGROUND: Asphalt road with light concrete sidewalk. Quiet street with a single delivery cyclist passing at the far left with slight motion blur.

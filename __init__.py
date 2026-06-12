@@ -1,9 +1,16 @@
 """
-ArchViz Preset System v4.0 for ComfyUI
+ArchViz Preset System v5.0 for ComfyUI
 =====================================
 
 Self-contained ComfyUI custom node package for high-end architectural
-visualization prompt construction with Nano Banana Pro / Gemini 3 Pro Image.
+visualization prompt construction — now model-aware. One preset library,
+compiled into the native prompt dialect of your target model:
+Nano Banana (edit + generate), Flux 2 Pro, Flux 2 Dev/Flex (structured),
+GPT Image 2 (brief), Ideogram 4 (JSON caption).
+
+Pick the model in the (AV) Matrix `target_model` dropdown. The default
+("nano_banana_edit") is byte-identical to v4 output — existing workflows
+are unaffected. Dialects live in presets/model_profiles.json (user-editable).
 
 INSTALLATION:
   Drop this entire folder into ComfyUI/custom_nodes/ and restart ComfyUI.
@@ -22,6 +29,9 @@ Repo: https://github.com/<your-org>/archviz-preset-system
 import json
 import shutil
 from pathlib import Path
+
+from .compilers import compile_prompt, profile_names
+from .scene import ArchVizScene
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -102,15 +112,25 @@ def _category_options(category: str) -> list:
     """Return preset names for one category, with '(none)' first."""
     presets = _load_presets()
     cat = presets.get(category, {})
-    return ["(none)"] + sorted(cat.keys())
+    return ["(none)"] + sorted(k for k in cat.keys() if not k.startswith("_"))
 
 
-def _resolve(category: str, name: str) -> str:
-    """Look up preset text. Returns empty string if 'none' or not found."""
+def _resolve(category: str, name: str, model: str = "") -> str:
+    """Look up preset text. Returns empty string if 'none' or not found.
+
+    v5: a preset value may be a plain string (used for all models) or an
+    object of per-model overrides, e.g.
+        {"default": "…", "flux2_pro": "…", "ideogram4_json": "…"}
+    """
     if not name or name == "(none)" or name.startswith("_"):
         return ""
     presets = _load_presets()
-    return presets.get(category, {}).get(name, "")
+    value = presets.get(category, {}).get(name, "")
+    if isinstance(value, dict):
+        if model and model in value:
+            return value[model]
+        return value.get("default", "")
+    return value
 
 
 def _join_fragments(parts: list, separator: str = ". ") -> str:
@@ -184,8 +204,10 @@ class ArchVizPresetMatrix:
 
     @classmethod
     def INPUT_TYPES(cls):
+        required = {"target_model": (profile_names(),)}
+        required.update({cat: (_category_options(cat),) for cat in MATRIX_CATEGORIES})
         return {
-            "required": {cat: (_category_options(cat),) for cat in MATRIX_CATEGORIES},
+            "required": required,
             "optional": {
                 "override":  ("STRING", {"forceInput": True, "default": ""}),
                 "separator": ("STRING", {"default": ". "}),
@@ -197,19 +219,25 @@ class ArchVizPresetMatrix:
     FUNCTION = "assemble"
     CATEGORY = "ArchViz"
 
-    def assemble(self, override="", separator=". ", **selections):
-        # Resolve in the canonical order
-        fragments = []
-        for cat in MATRIX_CATEGORIES:
-            value = selections.get(cat, "(none)")
-            fragments.append(_resolve(cat, value))
-        if override and override.strip():
-            fragments.append(override.strip())
+    def assemble(self, target_model="nano_banana_edit", override="", separator=". ", **selections):
+        # Resolve each category with model-aware overrides
+        fragments = {
+            cat: _resolve(cat, selections.get(cat, "(none)"), model=target_model)
+            for cat in MATRIX_CATEGORIES
+        }
 
-        prompt = _join_fragments(fragments, separator=separator)
+        prompt = compile_prompt(
+            fragments=fragments,
+            profile_name=target_model,
+            category_order=MATRIX_CATEGORIES,
+            override=override,
+            separator=separator,
+        )
 
         # Filename tag: prioritize enhancement preset, then descriptive selections
         tag_parts = []
+        if target_model and target_model != "nano_banana_edit":
+            tag_parts.append(target_model.replace("_", "")[:10])
         # If enhancement is active, lead with that
         enh = selections.get("enhancement", "(none)")
         if enh and enh != "(none)":
@@ -259,15 +287,17 @@ NODE_CLASS_MAPPINGS = {
     "ArchVizPresetLoader":    ArchVizPresetLoader,
     "ArchVizPresetMatrix":    ArchVizPresetMatrix,
     "ArchVizPromptAssembler": ArchVizPromptAssembler,
+    "ArchVizScene":           ArchVizScene,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
     "ArchVizPresetLoader":    "(AV) Preset",
     "ArchVizPresetMatrix":    "(AV) Matrix",
     "ArchVizPromptAssembler": "(AV) Assembler",
+    "ArchVizScene":           "(AV) Scene",
 }
 
 WEB_DIRECTORY = None  # no JS extensions
 
-print(f"[ArchViz] v4.1.0 loaded — 3 nodes ((AV) Preset / Matrix / Assembler) — 13 categories")
+print(f"[ArchViz] v5.1.0 loaded — 4 nodes, {len(profile_names())} target models, 13 categories + Scene projects")
 print(f"[ArchViz] Presets file: {USER_PRESETS_PATH}")

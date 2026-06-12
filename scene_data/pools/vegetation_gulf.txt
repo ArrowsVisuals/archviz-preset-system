@@ -1,0 +1,7 @@
+# Gulf-region street vegetation. Positions explicit.
+VEGETATION: one large leafy tree framing the LEFT edge with branches entering the top-left corner only; young olive trees behind the villas; lavender and feather grasses along the sidewalk.
+VEGETATION: two tall trees framing BOTH top corners; bougainvillea and ornamental grasses at the facade base; slim date palms rising behind the roofline.
+VEGETATION: one large tree framing only the RIGHT edge, canopy entering the top-right corner; flowering crepe myrtle near the entrance pillars; sage and pampas grass along the curb; dense green trees behind the villas.
+VEGETATION: tall ghaf trees framing the left edge; low desert acacia behind the villas; rosemary hedges and white flowering ground cover along the sidewalk planters.
+VEGETATION: soft out-of-focus foliage entering both top corners; a row of frangipani trees near the carports; lavender and feather grass along the curb; green canopy behind the roofline.
+VEGETATION: a single mature tree at the right edge casting dappled shade onto the road; date palms and dense greenery behind the villas; layered shrubs along the facade base.

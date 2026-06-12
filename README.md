@@ -1,5 +1,54 @@
 # ArchViz Preset System
 
+
+## (AV) Scene — locked-project batch renders (v5.1)
+
+For the Revit-elevation → photoreal workflow: one node, three widgets.
+
+```
+(AV) Scene
+├─ shot:       example_townhouses/front   ← projects auto-discovered
+├─ variation:  0..N  (increment to batch; every value = a unique combo)
+├─ seed:       shuffles the variation order
+└─ target_model: same dropdown as the Matrix
+outputs: system_prompt · prompt · filename_tag · debug
+```
+
+Data lives in `ComfyUI/user/archviz_scenes/` (examples copied on first
+run): `templates/` (typology rules — townhouse_row / villa / tower),
+`pools/` (global entourage lines, `@guard:` auto-appended),
+`projects/` (one ~20-line file per project). Body text supports
+`{field:…}` and `{preset:category/name}` — the latter reads the same
+preset library as the Matrix, with per-model overrides honored.
+
+New project = duplicate a project file, edit the fields, pick pools.
+New typology = write one template. Reproduce any render from its
+filename tag: type the variation + seed back in.
+
+## Target models (v5)
+
+Pick your model in the **(AV) Matrix** `target_model` dropdown — the same
+preset stack compiles into that model's native prompt dialect:
+
+| target_model | Output style | Use when |
+|---|---|---|
+| `nano_banana_edit` *(default)* | v4 edit instructions, byte-identical | Editing an existing render with Nano Banana / Gemini Image |
+| `nano_banana_generate` | Narrative prose | Text-to-image with Nano Banana |
+| `flux2_pro` | Natural-prose brief, word-budgeted | Flux 2 Pro (local or API) |
+| `flux2_dev_structured` | Labeled Subject/Scene/Camera/… | Flux 2 Dev / Flex / Klein |
+| `gpt_image_2` | Photographer's brief + "Must not drift" block | GPT Image 2 |
+| `ideogram4_json` | Structured JSON caption (experimental) | Ideogram 4 |
+
+Dialects are defined in `presets/model_profiles.json` — edit it to tune or add
+models, no code changes needed. Individual presets can carry per-model
+override text (see CHANGELOG 5.0.0).
+
+> Why this exists: v4 presets were written in Nano Banana's edit-instruction
+> dialect. Fed to Flux 2 verbatim, "preserve the input image" instructions
+> produce poor results — Flux wants a scene description, not an edit request.
+> The compiler re-packages the same curated content per model.
+
+
 [![Validate](https://github.com/ArrowsVisuals/archviz-preset-system/actions/workflows/validate.yml/badge.svg)](https://github.com/ArrowsVisuals/archviz-preset-system/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 

@@ -1,0 +1,218 @@
+{
+  "_comment_1": "ArchViz Preset System v5 — model dialect profiles.",
+  "_comment_2": "Key order here = dropdown order in the (AV) Matrix node. First key is the default.",
+  "_comment_3": "Formats: v4_join (byte-identical legacy), prose, labeled, json.",
+  "_comment_4": "drop_categories: removed before compiling. strip_edit_sentences: removes 'preserve/do not/input image' edit-instruction sentences that confuse scene-description models.",
+  "_comment_5": "Per-preset dialect overrides are also supported in archviz_presets.json: a preset value may be an object like {\"default\": \"...\", \"flux2_pro\": \"...\"} instead of a plain string.",
+  "nano_banana_edit": {
+    "label": "Nano Banana / Gemini Image — edit (v4 default)",
+    "format": "v4_join",
+    "scene_system": "separate"
+  },
+  "nano_banana_generate": {
+    "label": "Nano Banana / Gemini Image — generate (no input image)",
+    "format": "prose",
+    "opener": "Professional architectural photograph",
+    "drop_categories": [
+      "preservation",
+      "enhancement"
+    ],
+    "strip_edit_sentences": true,
+    "order": [
+      "camera",
+      "hero_style",
+      "people",
+      "population_density",
+      "scale_life",
+      "cars",
+      "surroundings",
+      "atmosphere",
+      "lighting",
+      "materials",
+      "style"
+    ],
+    "word_budget": null,
+    "scene_system": "separate"
+  },
+  "flux2_pro": {
+    "label": "Flux 2 Pro — natural-prose brief",
+    "format": "prose",
+    "opener": "Professional architectural photograph, faithfully matching the geometry, proportions and facade design of the reference image",
+    "drop_categories": [
+      "enhancement"
+    ],
+    "strip_edit_sentences": true,
+    "order": [
+      "camera",
+      "hero_style",
+      "people",
+      "population_density",
+      "scale_life",
+      "cars",
+      "surroundings",
+      "atmosphere",
+      "lighting",
+      "materials",
+      "style"
+    ],
+    "word_budget": 120,
+    "trim_priority": [
+      "scale_life",
+      "population_density",
+      "cars",
+      "atmosphere",
+      "surroundings",
+      "materials"
+    ],
+    "scene_system": "merge"
+  },
+  "flux2_dev_structured": {
+    "label": "Flux 2 Dev / Flex / Klein — structured",
+    "format": "labeled",
+    "opener": "Professional architectural photograph, faithful to the reference image geometry.",
+    "drop_categories": [
+      "enhancement"
+    ],
+    "strip_edit_sentences": true,
+    "order": [
+      "camera",
+      "lighting",
+      "atmosphere",
+      "style",
+      "materials",
+      "people",
+      "population_density",
+      "hero_style",
+      "scale_life",
+      "cars",
+      "surroundings"
+    ],
+    "slots": {
+      "Subject": [
+        "hero_style",
+        "people",
+        "population_density",
+        "scale_life",
+        "cars"
+      ],
+      "Scene": [
+        "surroundings"
+      ],
+      "Camera": [
+        "camera"
+      ],
+      "Lighting": [
+        "lighting"
+      ],
+      "Mood": [
+        "atmosphere"
+      ],
+      "Style": [
+        "style",
+        "materials"
+      ]
+    },
+    "scene_system": "merge"
+  },
+  "gpt_image_2": {
+    "label": "GPT Image 2 — photographer's brief",
+    "format": "labeled",
+    "opener": "Architectural photography brief.",
+    "drop_categories": [],
+    "strip_edit_sentences": false,
+    "strip_hype": true,
+    "order": [
+      "camera",
+      "lighting",
+      "atmosphere",
+      "style",
+      "materials",
+      "people",
+      "population_density",
+      "hero_style",
+      "scale_life",
+      "cars",
+      "surroundings",
+      "preservation",
+      "enhancement"
+    ],
+    "slots": {
+      "Subject": [
+        "hero_style",
+        "people",
+        "population_density",
+        "scale_life",
+        "cars"
+      ],
+      "Environment": [
+        "surroundings",
+        "atmosphere"
+      ],
+      "Lighting": [
+        "lighting"
+      ],
+      "Camera": [
+        "camera"
+      ],
+      "Materials and style": [
+        "materials",
+        "style"
+      ],
+      "Must not drift": [
+        "preservation",
+        "enhancement"
+      ]
+    },
+    "scene_system": "merge"
+  },
+  "ideogram4_json": {
+    "label": "Ideogram 4 — JSON caption (experimental)",
+    "format": "json",
+    "opener": "Professional architectural photograph of the building.",
+    "drop_categories": [
+      "preservation",
+      "enhancement"
+    ],
+    "strip_edit_sentences": true,
+    "order": [
+      "camera",
+      "lighting",
+      "atmosphere",
+      "style",
+      "materials",
+      "people",
+      "population_density",
+      "hero_style",
+      "scale_life",
+      "cars",
+      "surroundings"
+    ],
+    "slots": {
+      "scene": [
+        "surroundings"
+      ],
+      "subject": [
+        "hero_style",
+        "people",
+        "population_density",
+        "scale_life",
+        "cars"
+      ],
+      "camera": [
+        "camera"
+      ],
+      "lighting": [
+        "lighting"
+      ],
+      "mood": [
+        "atmosphere"
+      ],
+      "style": [
+        "style",
+        "materials"
+      ]
+    },
+    "scene_system": "merge"
+  },
+  "_comment_6": "scene_system controls the (AV) Scene node's SYSTEM section per model: separate (own output) | merge (prepended to prompt, for models without a system field) | drop."
+}

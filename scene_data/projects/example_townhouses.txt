@@ -1,0 +1,33 @@
+# Example project: two-storey townhouse row behind a low boundary wall.
+# Duplicate this file to start a new project; edit fields + shots.
+template: townhouse_row
+
+=== FIELDS ===
+storeys: TWO
+
+=== FIELD drawing_notes ===
+- The long LOW horizontal band across the bottom of the drawing is an
+  EXISTING solid boundary wall, roughly one-third of the building's height.
+  It must appear in the render at exactly this height and length: never
+  taller, never shorter, never removed, no added gates, piers or openings.
+- The ground floor is partially hidden behind the boundary wall: render
+  only what the drawing shows, never invent doors or windows there.
+
+=== FIELD material_legend ===
+- WHITE surfaces = warm off-white / creamy beige smooth stucco.
+- ONLY the DARK GREY shaded feature panels (recessed accents around
+  windows/balconies) = warm beige TRAVERTINE, vein-cut, horizontal veining,
+  large-format panels, thin joints, honed matte. Travertine stops exactly
+  at the panel edges. Any uncertain surface = stucco.
+- The boundary wall = the same beige stucco as the building.
+- Glazing as drawn with bronze-champagne aluminum frames.
+
+=== FIELD identity ===
+vertical bronze-brown louvers, dark bronze pergola slats, slim bronze
+railings, brushed metal number plaques. Clear blue sky, late-morning warm
+sun from upper left, premium UAE developer marketing quality, no text or
+watermarks.
+
+=== SHOTS ===
+front: people_street, cars_luxury, vegetation_gulf
+back: gardens_private

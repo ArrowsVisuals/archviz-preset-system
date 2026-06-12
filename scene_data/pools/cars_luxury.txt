@@ -1,0 +1,7 @@
+# Luxury parked cars. Current models, varied colors and orientation.
+PARKED CARS: a silver Porsche 911 in one carport, a white Range Rover Sport and a graphite BMW i7 along the street - all current models.
+PARKED CARS: a dark blue Porsche Taycan, a pearl-white Mercedes EQS and a sand-beige Porsche Cayenne - latest-generation models, one inside a carport, two on the street.
+PARKED CARS: a matte-grey Porsche 911 GT3, a black Audi RS6 Avant and a champagne Lexus LX - current models, varied orientation, one nose-in, one parallel.
+PARKED CARS: a white Porsche Macan EV, a deep green Bentley Bentayga and a silver Mercedes G-Class - current models split between carports and street.
+PARKED CARS: a burgundy Porsche Panamera, a white BMW iX and a grey Audi Q8 e-tron - all latest models, clean showroom condition.
+PARKED CARS: a grey Lamborghini Urus, a white Tesla Model S and a bronze Range Rover Velar - current models, one inside a carport.

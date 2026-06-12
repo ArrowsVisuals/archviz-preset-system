@@ -5,6 +5,94 @@ All notable changes to the ArchViz Preset System are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.1.0] — 2026-06-12
+
+### Added — (AV) Scene: locked-project batch rendering
+A fourth node for the elevation-to-render production workflow (Revit
+screenshots → photoreal marketing renders with controlled variation).
+**Three core widgets**: `shot` / `variation` / `seed`. Outputs:
+`system_prompt`, `prompt`, `filename_tag`, `debug`.
+
+- **Layered data, zero duplication** — everything lives once, under
+  `ComfyUI/user/archviz_scenes/` (bundled examples auto-copy on first run):
+  - `templates/` — one file per typology (`townhouse_row`, `villa`, `tower`
+    bundled). SYSTEM/CORE skeletons with `{field:…}` placeholders.
+  - `pools/` — global entourage pools, one line = one option, optional
+    `@guard:` first line auto-appended to every pick.
+  - `projects/` — tiny per-project files (~20 lines): pick a template,
+    fill fields, declare shots, optionally `extends` a pool with local lines.
+  - `{preset:lighting/golden_hour}` references pull from the **same preset
+    library the Matrix uses** — edit a preset once, both nodes update.
+- **Reproducible exhaustive variation** — variations 0..N-1 cover every
+  pool combination exactly once (no random collisions in a batch), in a
+  seed-shuffled order. Same (shot, variation, seed) always rebuilds the
+  same prompt; the `filename_tag` (`project_shot_v007_s42`) carries the
+  recipe of every render on disk.
+- **Model-aware** — the Scene node has the same `target_model` dropdown as
+  the Matrix. Sections can carry per-model variants
+  (`=== CORE @flux2_pro ===`); `{preset:…}` refs honor per-model preset
+  overrides; profiles control SYSTEM handling via `scene_system`
+  ("separate" / "merge" for models without a system field / "drop").
+  Missing model variants fall back to the default dialect **with a
+  warning** — geometry-lock language is never silently rewritten.
+- **Optional `style_override` input** — pipe the (AV) Matrix output in to
+  run styling experiments on top of a locked project. The two nodes share
+  one library and never conflict: Matrix = exploration, Scene = production.
+- `debug` output traces every source: template, fields, presets, pool
+  picks (`[pool:cars_luxury#3/6]`), warnings.
+
+### Notes
+- Methodology credit: this productizes the tested elevation-to-render
+  reference workflow (SYSTEM/CORE/slot layering, positional pool lines,
+  guard clauses) developed in production on Gulf townhouse projects.
+
+## [5.0.0] — 2026-06-10
+
+### Added — Model-Aware Compilation (the headline)
+One preset stack, compiled into the native prompt dialect of your target model.
+The **(AV) Matrix** node gains a `target_model` dropdown:
+
+- **`nano_banana_edit`** *(default)* — byte-identical to v4 output. Existing
+  workflows are completely unaffected.
+- **`nano_banana_generate`** — generate-mode prose for text-to-image runs
+  (drops preservation/enhancement edit instructions that have nothing to edit).
+- **`flux2_pro`** — natural-prose creative brief in Flux 2's preferred order
+  (subject → environment → lighting → style), edit-instruction sentences
+  stripped, soft word budget with category-priority trimming. **This fixes the
+  bad Flux 2 results from v4 presets** — Flux was being fed Nano Banana edit
+  instructions ("preserve the input image…") it cannot interpret.
+- **`flux2_dev_structured`** — labeled semi-structured format
+  (Subject/Scene/Camera/Lighting/Mood/Style) for Flux 2 Dev / Flex / Klein.
+- **`gpt_image_2`** — photographer's-brief slots with a "Must not drift"
+  constraints block (built from preservation presets) and hype-word stripping.
+- **`ideogram4_json`** — structured JSON caption (experimental).
+
+### Added — Data-driven dialects
+- `presets/model_profiles.json` defines every dialect: category order, dropped
+  categories, slot layout, openers, word budgets. Add or tune a model without
+  touching Python.
+- **Per-preset dialect overrides**: a preset value in `archviz_presets.json`
+  may now be an object instead of a string:
+  ```json
+  "preserve_exactly": {
+    "default": "Preserve the exact geometry … of the input image …",
+    "flux2_pro": "faithful to the reference architecture, true to the original design"
+  }
+  ```
+  The string form continues to work everywhere.
+- New module `compilers.py` — the compiler engine (pure Python, no deps,
+  fully offline and deterministic; same inputs always produce the same prompt).
+
+### Fixed
+- `_comment` helper keys no longer appear in category dropdowns.
+
+### Notes
+- `filename_tag` is prefixed with the model name for non-default targets, so
+  multi-model batch outputs sort cleanly (default keeps v4 filenames).
+- Roadmap (v5.1): video/motion categories with Kling / Wan 2.2 / Seedance
+  compilers; optional local-LLM "smart compile" backend (Ollama / Qwen-VL),
+  cloud LLM backends after that.
+
 ## [4.1.0] — 2026-05-10
 
 ### Added
